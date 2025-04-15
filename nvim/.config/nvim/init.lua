@@ -12,6 +12,8 @@ vim.opt.shiftwidth = 4
 vim.opt.expandtab = true
 vim.opt.fixendofline = false
 vim.opt.lazyredraw = true
+vim.opt.ignorecase = true
+vim.opt.smartcase = true
 -- vim.opt.colorcolumn = "80"
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
@@ -908,3 +910,12 @@ local function buffer_name_generator(opts)
 end
 
 vim.g.Db_ui_buffer_name_generator = buffer_name_generator
+
+vim.api.nvim_set_hl(0, 'Normal', { bg = 'none' })
+vim.api.nvim_set_hl(0, 'NormalFloat', { bg = 'none' })
+vim.api.nvim_set_hl(0, 'FloatBorder', { bg = 'none' })
+vim.api.nvim_set_hl(0, 'Pmenu', { bg = 'none' })
+vim.api.nvim_set_hl(0, 'NvimTreeNormal', { bg = 'none' })
+vim.api.nvim_set_hl(0, 'NvimTreeNormalNC', { bg = 'none' })
+vim.api.nvim_set_hl(0, 'NvimTreeEndOfBuffer', { bg = 'none' })
+vim.api.nvim_set_hl(0, 'NvimTreeVertSplit', { bg = 'none' })
