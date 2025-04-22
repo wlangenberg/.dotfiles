@@ -20,6 +20,7 @@ eval "$(zoxide init zsh)"
 # Go
 export GOPATH=$HOME/go
 export PATH="$PATH:$GOPATH/bin"
+export PATH="$HOME/.local/share/nvim/mason/bin:$PATH"
 
 # aliases
 alias vim="nvim"

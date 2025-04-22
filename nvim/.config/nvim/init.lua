@@ -159,6 +159,11 @@ require("lazy").setup({
               javascript = { "eslint", "cspell" },
               typescript = { "eslint", "cspell" },
               python = { "flake8", "cspell" },
+              go = { "golangci-lint", "cspell" },
+          }
+
+          g.ale_fixers = {
+              go = { "golangci_lint" },
           }
 
           g.ale_linter_aliases = {
@@ -390,6 +395,22 @@ require("zen-mode").setup({
         },
         tmux = { enabled = true },
     },
+})
+
+
+vim.diagnostic.config({
+    virtual_text = false,
+    float = {
+        source = "always",
+        border = "rounded",
+        header = "",
+        prefix = "",
+        borderhighlight = "Comment",
+    },
+    signs = true,
+    underline = true,
+    update_in_insert = false,
+    severity_sort = true,
 })
 
 -- Harpoon setup
@@ -790,6 +811,7 @@ vim.keymap.set("n", "<leader>j", "<cmd>cnext<CR>zz")
 vim.keymap.set("n", "<leader>k", "<cmd>cprev<CR>zz")
 
 vim.keymap.set("n", "<leader>gs", ":G<CR>")
+vim.keymap.set("n", "<leader>gb", ":Git blame<CR>")
 
 vim.keymap.set("n", "<leader>gvc", ":Gvdiffsplit<CR>")
 vim.keymap.set("n", "<leader>gvm", ":Gvdiffsplit master...:%<CR>")

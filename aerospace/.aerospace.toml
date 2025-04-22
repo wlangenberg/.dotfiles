@@ -18,13 +18,15 @@ automatically-unhide-macos-hidden-apps = false
 [key-mapping]
     preset = 'qwerty'
 
-[gaps]
-    inner.horizontal = 10
-    inner.vertical =   10
-    outer.left =       10
-    outer.bottom =     10
-    outer.top =        50
-    outer.right =      10
+[gaps.inner]
+    horizontal = 10
+    vertical =   10
+
+[gaps.outer]
+    left =       10
+    bottom =     10
+    top =        50 # 20
+    right =      10
 
 [mode.main.binding]
 
@@ -47,16 +49,16 @@ automatically-unhide-macos-hidden-apps = false
     alt-1 = 'workspace 1'
     alt-2 = 'workspace 2'
     alt-3 = 'workspace 3'
-    alt-q = 'workspace 4'
-    alt-w = 'workspace 5'
-    alt-e = 'workspace 6'
+    alt-q = 'workspace q'
+    alt-w = 'workspace w'
+    alt-e = 'workspace e'
 
     alt-shift-1 = 'move-node-to-workspace 1'
     alt-shift-2 = 'move-node-to-workspace 2'
     alt-shift-3 = 'move-node-to-workspace 3'
-    alt-shift-q = 'move-node-to-workspace 4'
-    alt-shift-w = 'move-node-to-workspace 5'
-    alt-shift-e = 'move-node-to-workspace 6'
+    alt-shift-q = 'move-node-to-workspace q'
+    alt-shift-w = 'move-node-to-workspace w'
+    alt-shift-e = 'move-node-to-workspace e'
 
     alt-tab = 'workspace-back-and-forth'
     alt-shift-tab = 'move-workspace-to-monitor --wrap-around next'
