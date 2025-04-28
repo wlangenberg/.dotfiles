@@ -645,7 +645,7 @@ lspconfig.ts_ls.setup({
 
 
 lspconfig.emmet_language_server.setup({
-  filetypes = { "eruby", "html", "javascript", "javascriptreact", "less", "sass", "scss", "pug", "typescriptreact", "htmx" },
+  filetypes = { "eruby", "html", "javascript", "javascriptreact", "less", "sass", "scss", "pug", "typescriptreact", "htmx", "templ" },
   init_options = {},
 })
 
