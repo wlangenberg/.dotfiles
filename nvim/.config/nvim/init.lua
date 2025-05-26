@@ -14,13 +14,18 @@ vim.opt.fixendofline = false
 vim.opt.lazyredraw = true
 vim.opt.ignorecase = true
 vim.opt.smartcase = true
--- vim.opt.colorcolumn = "80"
+vim.opt.colorcolumn = "120"
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
 vim.g.omni_sql_no_default_maps = 1
 vim.opt.guicursor = "n-v-c:block,i:hor10"
 vim.opt.shortmess:append("I")
 vim.o.scrolloff = 5
+
+-- Dadbod UI settings
+vim.g.db_ui_execute_on_save = 0
+vim.g.db_ui_save_location = "~/db_ui"
+vim.g.db_ui_tmp_query_location = '~/db_ui/queries'
 
 -- Clipboard copy
 vim.api.nvim_set_keymap('v', '<leader>y', '"+y', { noremap = true, silent = true })
@@ -185,7 +190,6 @@ require("lazy").setup({
       'saadparwaiz1/cmp_luasnip',
     }
   },
-  
   -- fzf
   { 'junegunn/fzf', run = function() vim.fn['fzf#install']() end },
   'junegunn/fzf.vim',
@@ -795,7 +799,9 @@ vim.api.nvim_set_keymap('n', '<leader>q', ':bd<CR>', { noremap = true, silent = 
 vim.api.nvim_set_keymap('n', '<leader>w', ':w<CR>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<leader>o', '<cmd>DBUIToggle<CR>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<leader>l', 'gt', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<leader>L', ':execute "tabmove" tabpagenr() + 1<CR>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<leader>h', 'gT', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<leader>H', ':execute "tabmove" tabpagenr() - 2 <CR>', { noremap = true, silent = true })
 
 
 -- greatest remap ever / ThePrimeagean
