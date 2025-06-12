@@ -292,12 +292,8 @@ require("lazy").setup({
 
   -- Color scheme
   'folke/tokyonight.nvim',
-
+  'realbucksavage/riderdark.vim',
   { "rose-pine/neovim", name = "rose-pine" },
-
-  -- { "rose-pine/neovim", name = "rose-pine", config = function ()
-  --     vim.cmd('colorscheme rose-pine-main')
-  -- end },
 
   -- vim-tmux-navigator
   {
@@ -386,7 +382,8 @@ require("rose-pine").setup({
     }
 })
 
-vim.cmd("colorscheme rose-pine")
+-- Default colorscheme
+vim.cmd("colorscheme tokyonight")
 
 -- Mason
 require("mason").setup()
@@ -967,12 +964,3 @@ local function buffer_name_generator(opts)
 end
 
 vim.g.Db_ui_buffer_name_generator = buffer_name_generator
-
-vim.api.nvim_set_hl(0, 'Normal', { bg = 'none' })
-vim.api.nvim_set_hl(0, 'NormalFloat', { bg = 'none' })
-vim.api.nvim_set_hl(0, 'FloatBorder', { bg = 'none' })
-vim.api.nvim_set_hl(0, 'Pmenu', { bg = 'none' })
-vim.api.nvim_set_hl(0, 'NvimTreeNormal', { bg = 'none' })
-vim.api.nvim_set_hl(0, 'NvimTreeNormalNC', { bg = 'none' })
-vim.api.nvim_set_hl(0, 'NvimTreeEndOfBuffer', { bg = 'none' })
-vim.api.nvim_set_hl(0, 'NvimTreeVertSplit', { bg = 'none' })
