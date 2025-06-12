@@ -169,6 +169,8 @@ require("lazy").setup({
 
           g.ale_fixers = {
               go = { "golangci_lint" },
+              python = { "ruff", "ruff_format" },  -- Add ruff fixers for Python
+
           }
 
           g.ale_linter_aliases = {
@@ -259,6 +261,9 @@ require("lazy").setup({
   { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' },
   'nvim-telescope/telescope-symbols.nvim',
   "benfowler/telescope-luasnip.nvim",
+
+  -- Bufferline
+  {'akinsho/bufferline.nvim', version = "*", dependencies = 'nvim-tree/nvim-web-devicons'},
 
   -- Treesitter
   { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' },
@@ -364,6 +369,13 @@ vim.g.tmux_navigator_disable_when_zoomed = 1
 
 require('undotree').setup()
 
+require("bufferline").setup{
+        options = {
+            mode = "tabs",
+        }
+}
+
+
 
 require("rose-pine").setup({
     variant = "auto",
@@ -379,7 +391,7 @@ vim.cmd("colorscheme rose-pine")
 -- Mason
 require("mason").setup()
 require("mason-lspconfig").setup({
-    ensure_installed = { "tailwindcss", "html", "htmx", "templ", "gopls", "pyright", "lua_ls", "ts_ls", "emmet_language_server", "cssls", "clangd", "eslint" },
+    ensure_installed = { "tailwindcss", "html", "htmx", "templ", "gopls", "pyright", "lua_ls", "ts_ls", "emmet_language_server", "cssls", "clangd", "eslint", "ruff" },
     automatic_installation = true,
 })
 
@@ -540,6 +552,23 @@ local lsp_util = require('lspconfig.util')
 
 -- LSP servers setup
 lspconfig.gopls.setup{}
+
+lspconfig.ruff.setup({
+    on_attach = function(client, bufnr)
+        -- Disable hover in favor of Pyright
+        client.server_capabilities.hoverProvider = false
+        on_attach(client, bufnr)
+    end,
+    capabilities = capabilities,
+    init_options = {
+        settings = {
+            -- Arguments passed to ruff
+            args = {
+                "--config", vim.fn.expand("~/.config/ruff/pyproject.toml"), -- Optional: specify config file
+            },
+        }
+    }
+})
 
 
 lspconfig.omnisharp.setup{
