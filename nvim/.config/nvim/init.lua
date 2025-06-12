@@ -641,7 +641,16 @@ lspconfig.cssls.setup{
 
 lspconfig.jsonls.setup{}
 
-lspconfig.lua_ls.setup{}
+lspconfig.lua_ls.setup({
+  settings = {
+    Lua = {
+      diagnostics = {
+        globals = { 'vim' },
+      },
+    },
+  },
+})
+
 
 lspconfig.sqlls.setup({
   on_attach = on_attach,
