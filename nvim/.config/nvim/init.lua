@@ -212,6 +212,9 @@ require("lazy").setup({
   -- vim-go
   { 'fatih/vim-go', run = ':GoUpdateBinaries' },
 
+  -- Supermaven
+  { "supermaven-inc/supermaven-nvim" },
+
   -- zen mode B)
   "folke/zen-mode.nvim",
 
@@ -371,7 +374,17 @@ require("bufferline").setup{
         }
 }
 
-
+require("supermaven-nvim").setup({
+    keymaps = {
+        accept_suggestion = "<C-k>",
+        clear_suggestion = "<C-l>",
+        accept_word = "<C-j>",
+    },
+    ignore_filetypes = { cpp = true },
+    log_level = "off",
+    disable_inline_completion = false,
+    disable_keymaps = false,
+})
 
 require("rose-pine").setup({
     variant = "auto",
