@@ -25,7 +25,8 @@ automatically-unhide-macos-hidden-apps = false
 [gaps.outer]
     left =       10
     bottom =     10
-    top =        50 # 20
+    # top =        20
+    top =        50
     right =      10
 
 [mode.main.binding]
@@ -46,6 +47,22 @@ automatically-unhide-macos-hidden-apps = false
     alt-minus = 'resize smart -50'
     alt-equal = 'resize smart +50'
 
+    alt-tab = 'workspace-back-and-forth'
+    alt-shift-tab = 'move-workspace-to-monitor --wrap-around next'
+    alt-f = 'fullscreen'
+    alt-shift-space = 'layout floating tiling'
+
+    alt-shift-s= 'mode service'
+    alt-shift-c = 'reload-config'
+    alt-enter = '''exec-and-forget open -na Ghostty'''
+
+    cmd-h = []
+    cmd-m = []
+    cmd-alt-h = []
+    alt-shift-f = ['macos-native-fullscreen']
+    alt-esc = ['mode disabledaero']
+    alt-r = ['mode resize']
+
     alt-1 = 'workspace 1'
     alt-2 = 'workspace 2'
     alt-3 = 'workspace 3'
@@ -60,19 +77,29 @@ automatically-unhide-macos-hidden-apps = false
     alt-shift-w = 'move-node-to-workspace w'
     alt-shift-e = 'move-node-to-workspace e'
 
-    alt-tab = 'workspace-back-and-forth'
-    alt-shift-tab = 'move-workspace-to-monitor --wrap-around next'
-    alt-f = 'fullscreen'
-    alt-shift-space = 'layout floating tiling'
+    [workspace-to-monitor-force-assignment]
+    1 = 'main'
+    2 = 'main'
+    3 = 'main'
+    e = ['secondary', 'main']
+    q = ['secondary', 'main']
+    w = ['secondary', 'main']
 
-    alt-shift-semicolon = 'mode service'
-
-    cmd-h = []
-    cmd-alt-h = []
-    alt-shift-f = ['mode nativefullscreen', 'macos-native-fullscreen on']
 
 [mode.nativefullscreen.binding]
     alt-shift-f = ['mode main', 'macos-native-fullscreen off']
+
+[mode.disabledaero.binding]
+    alt-esc = ['mode main']
+
+
+[mode.resize.binding]
+    h = 'resize width +50'
+    j = 'resize height -50'
+    k = 'resize height +50'
+    l = 'resize width -50'
+    enter = 'mode main'
+    esc = 'mode main'
 
 [mode.service.binding]
     esc = ['reload-config', 'mode main']

@@ -35,3 +35,5 @@ alias ll="ls -l"
 pc() {
   python3 -c "print($*)"
 }
+
+. "$HOME/.local/bin/env"
