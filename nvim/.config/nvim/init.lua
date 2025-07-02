@@ -376,7 +376,11 @@ require("bufferline").setup{
             icon = '|',
             style = 'icon',
         },
-        separator_style = { '', '' }
+        separator_style = { '', '' },
+            max_name_length = 28,
+            max_prefix_length = 25, -- prefix used when a buffer is de-duplicated
+            truncate_names = true, -- whether or not tab names should be truncated
+            tab_size = 28,
     }
 }
 
