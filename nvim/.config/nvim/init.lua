@@ -369,10 +369,15 @@ vim.g.tmux_navigator_disable_when_zoomed = 1
 require('undotree').setup()
 
 require("bufferline").setup{
-        options = {
-            mode = "tabs",
-            show_buffer_icons = false,
-        }
+    options = {
+        mode = "tabs",
+        show_buffer_icons = false,
+        indicator = {
+            icon = '|',
+            style = 'icon',
+        },
+        separator_style = { '', '' }
+    }
 }
 
 require("supermaven-nvim").setup({
