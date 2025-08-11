@@ -37,3 +37,8 @@ pc() {
 }
 
 . "$HOME/.local/bin/env"
+
+# load .zsh_secrets if exists
+if [ -f "$HOME/.zsh_secrets" ]; then
+  source "$HOME/.zsh_secrets"
+fi
