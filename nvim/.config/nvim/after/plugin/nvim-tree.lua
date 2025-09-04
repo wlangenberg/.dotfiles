@@ -35,6 +35,6 @@ nvim_tree.setup({
         },
     },
     renderer = { group_empty = true },
-    filters = { dotfiles = true },
+    filters = { git_ignored = false, dotfiles = false },
     live_filter = { always_show_folders = false },
 })

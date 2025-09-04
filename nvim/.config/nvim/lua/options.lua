@@ -29,5 +29,5 @@ vim.o.signcolumn = "yes"
 vim.o.completeopt = "menuone,noselect"
 vim.o.swapfile = false
 vim.o.laststatus = 0
-vim.opt.undodir = os.getenv("HOME") .. "/.vim/undodir"
-vim.opt.undofile = true
+vim.o.undodir = os.getenv("HOME") .. "/.vim/undodir"
+vim.o.undofile = true

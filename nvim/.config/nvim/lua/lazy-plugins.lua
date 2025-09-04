@@ -31,7 +31,7 @@ require("lazy").setup({
     debug = false,
     {
         'hrsh7th/nvim-cmp',
-        event = "InsertEnter",
+        Lazy = false,
         dependencies = {
             'hrsh7th/cmp-nvim-lsp',
             'hrsh7th/cmp-buffer',
@@ -48,6 +48,17 @@ require("lazy").setup({
     {
         'junegunn/fzf',
         run = function() vim.fn['fzf#install']() end
+    },
+    "chomosuke/typst-preview.nvim",
+    {
+        "toppair/peek.nvim",
+        event = { "VeryLazy" },
+        build = "deno task --quiet build:fast",
+        config = function()
+            require("peek").setup()
+            vim.api.nvim_create_user_command("PeekOpen", require("peek").open, {})
+            vim.api.nvim_create_user_command("PeekClose", require("peek").close, {})
+        end,
     },
     'junegunn/fzf.vim',
     "tpope/vim-obsession",
@@ -135,10 +146,12 @@ require("lazy").setup({
         },
     },
     {
-        "mason-org/mason.nvim",
-        opts = {}
+        "williamboman/mason.nvim",
+        dependencies = {
+            "williamboman/mason-lspconfig.nvim",
+            "neovim/nvim-lspconfig",
+        }
     },
 
     "supermaven-inc/supermaven-nvim",
-    "github/copilot.vim",
 })

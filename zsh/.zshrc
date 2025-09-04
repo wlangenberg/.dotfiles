@@ -30,6 +30,7 @@ alias gb="git branch"
 alias ta="tmux attach || tmux"
 alias ls="ls -G"
 alias ll="ls -l"
+alias fkill='ps -e -o pid,comm | fzf --preview "echo {}" | awk "{print \$1}" | xargs kill -9'
 
 # python alias
 pc() {
