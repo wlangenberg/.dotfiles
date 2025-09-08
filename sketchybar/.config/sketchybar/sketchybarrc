@@ -33,8 +33,8 @@ PLUGIN_DIR="$CONFIG_DIR/plugins"
 sketchybar --bar position=top height=40 color=0xf5060e1c 
 
 default=(
-  padding_left=5
-  padding_right=5
+  padding_left=7
+  padding_right=7
   icon.font="Hack Nerd Font:Bold:17.0"
   label.font="Hack Nerd Font:Bold:14.0"
   icon.color=0xffffffff
