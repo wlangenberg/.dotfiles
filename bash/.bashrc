@@ -125,14 +125,14 @@ export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quo
 export GOROOT=/usr/local/go
 export GOPATH=$HOME/go
 export PATH=$GOPATH/bin:$GOROOT/bin:$PATH
-export PATH="$PATH:/opt/nvim-linux64/bin"
+export PATH="$PATH:/opt/nvim-linux-x86_64/bin/"
 export PATH="$PATH:/home/willie/.local/scripts"
 export COLORTERM=truecolor
 export DOTNET_ROOT=$HOME/.dotnet
 export PATH=$PATH:$DOTNET_ROOT:$DOTNET_ROOT/tools
 export PATH=$PATH:/opt/netcoredbg
 export ASPNETCORE_URLS=http://+:59909
-export ASPNETCORE_ENVIRONMENT='dev'
+export ASPNETCORE_ENVIRONMENT=development
 # export DOTNET_ROOT=/usr/share/dotnet
 # export PATH=$PATH:$HOME/.dotnet/tools
 
@@ -158,3 +158,5 @@ alias gauthor='git log --pretty=format:"(%ad) %an - %s" --date=iso'
 alias vim='nvim'
 alias vi='nvim'
 alias ta='tmux attach || tmux'
+. "/home/willie/.deno/env"
+source /home/willie/.local/share/bash-completion/completions/deno.bash
