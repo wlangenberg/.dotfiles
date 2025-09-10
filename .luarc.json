@@ -1,6 +1,7 @@
 {
     "diagnostics.globals": [
         "vim",
-        "luasnip"
+        "luasnip",
+        "hs"
     ]
 }
