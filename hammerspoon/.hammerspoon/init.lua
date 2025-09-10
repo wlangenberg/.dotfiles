@@ -95,7 +95,7 @@ hs.hotkey.bind({ "alt", "shift" }, "P", function()
 end)
 
 -- Shrink height
-hs.hotkey.bind({ "alt", "shift" }, "I", function()
+hs.hotkey.bind({ "alt", "shift" }, "O", function()
     local win = hs.window.focusedWindow()
     if not win then return end
     local f = win:frame()
@@ -105,7 +105,7 @@ hs.hotkey.bind({ "alt", "shift" }, "I", function()
 end)
 
 -- Grow height
-hs.hotkey.bind({ "alt", "shift" }, "O", function()
+hs.hotkey.bind({ "alt", "shift" }, "I", function()
     local win = hs.window.focusedWindow()
     if not win then return end
     local f = win:frame()
