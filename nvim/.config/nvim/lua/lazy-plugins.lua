@@ -121,14 +121,6 @@ require("lazy").setup({
         dependencies = { "neovim/nvim-lspconfig" },
     },
     {
-        "jiaoshijie/undotree",
-        dependencies = "nvim-lua/plenary.nvim",
-        config = true,
-        keys = {
-            { "<leader>u", "<cmd>lua require('undotree').toggle()<cr>" },
-        },
-    },
-    {
         "christoomey/vim-tmux-navigator",
         cmd = {
             "TmuxNavigateLeft",
@@ -146,12 +138,47 @@ require("lazy").setup({
         },
     },
     {
+        "stevearc/oil.nvim",
+        dependencies = { "nvim-tree/nvim-web-devicons" },
+        config = function()
+            CustomOilBar = function()
+                local path = vim.fn.expand "%"
+                path = path:gsub("oil://", "")
+
+                return "  " .. vim.fn.fnamemodify(path, ":.")
+            end
+
+            require("oil").setup {
+                columns = { "icon" },
+                keymaps = {
+                    -- ["<C-h>"] = false,
+                    -- ["<C-l>"] = false,
+                    -- ["<C-k>"] = false,
+                    -- ["<C-j>"] = false,
+                    ["<M-h>"] = "actions.select_split",
+                },
+                win_options = {
+                    winbar = "%{v:lua.CustomOilBar()}",
+                },
+                view_options = {
+                    show_hidden = true,
+                    is_always_hidden = function(name, _)
+                        local folder_skip = { "dev-tools.locks", "dune.lock", "_build" }
+                        return vim.tbl_contains(folder_skip, name)
+                    end,
+                },
+            }
+
+            vim.keymap.set("n", "-", "<CMD>Oil<CR>", { desc = "Open parent directory" })
+            vim.keymap.set("n", "<space>-", require("oil").toggle_float)
+        end,
+    },
+    {
         "williamboman/mason.nvim",
         dependencies = {
             "williamboman/mason-lspconfig.nvim",
             "neovim/nvim-lspconfig",
         }
     },
-
     "supermaven-inc/supermaven-nvim",
 })

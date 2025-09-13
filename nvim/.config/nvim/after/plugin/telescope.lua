@@ -28,7 +28,7 @@ local telescope_builtin = require('telescope.builtin')
 local my_find_files
 my_find_files = function(opts, no_ignore)
     opts = opts or {}
-    no_ignore = vim.F.if_nil(no_ignore, false)
+    no_ignore = vim.F.if_nil(no_ignore, true)
     opts.attach_mappings = function(_, map)
         map({ "n", "i" }, "<C-h>", function(prompt_bufnr)
             local prompt = require("telescope.actions.state").get_current_line()
@@ -53,7 +53,7 @@ end
 local my_live_grep
 my_live_grep = function(opts, no_ignore)
     opts = opts or {}
-    no_ignore = vim.F.if_nil(no_ignore, false)
+    no_ignore = vim.F.if_nil(no_ignore, true)
 
     opts.attach_mappings = function(_, map)
         map({ "n", "i" }, "<C-h>", function(prompt_bufnr)
