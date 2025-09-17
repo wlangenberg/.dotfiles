@@ -31,3 +31,4 @@ vim.o.swapfile = false
 vim.o.laststatus = 0
 vim.o.undodir = os.getenv("HOME") .. "/.vim/undodir"
 vim.o.undofile = true
+vim.o.fileformat = "unix"
