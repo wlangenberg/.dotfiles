@@ -1,0 +1,27 @@
+general {
+        colors = true
+        interval = 5
+        output_format = "i3bar"
+}
+
+order += "load"
+order += "disk /"
+order += "memory"
+order += "tztime stockholm"
+
+disk "/" {
+        format = "%avail"
+}
+
+load {
+        format = "%1min"
+}
+
+memory {
+        format = "%used / %available"
+}
+
+tztime stockholm {
+        format = "%Y-%m-%d %H:%M"
+        timezone = "Europe/Stockholm"
+}
