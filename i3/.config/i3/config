@@ -37,7 +37,8 @@ exec --no-startup-id nm-applet
 # Parcellite
 exec --no-startup-id parcellite
 
-exec --no-startup-id feh --bg-fill "~/Pictures/bg_01.jpg"
+# exec --no-startup-id feh --bg-fill "/home/willie/Pictures/bg_01.jpg"
+exec --no-startup-id feh --bg-fill "/home/willie/Pictures/bg_03.jpg"
 
 # Use pactl to adjust volume in PulseAudio.
 set $refresh_i3status killall -SIGUSR1 i3status
@@ -67,6 +68,10 @@ bindsym $mod+d exec --no-startup-id dmenu_run
 # .desktop file. It is a wrapper around dmenu, so you need that installed.
 # bindcode $mod+40 exec --no-startup-id i3-dmenu-desktop
 
+# gaps
+gaps inner 15px
+gaps outer 5px
+
 # change focus
 bindsym $mod+h focus left
 bindsym $mod+j focus down
@@ -91,11 +96,10 @@ bindsym $mod+Shift+Down move down
 bindsym $mod+Shift+Up move up
 bindsym $mod+Shift+Right move right
 
-# split in horizontal orientation
+# split in vertical/horizontal orientation
 bindsym $mod+x split h
-
-# split in vertical orientation
 bindsym $mod+v split v
+bindsym $mod+e layout toggle split
 
 # enter fullscreen mode for the focused container
 bindsym $mod+f fullscreen toggle
@@ -103,7 +107,6 @@ bindsym $mod+f fullscreen toggle
 # change container layout (stacked, tabbed, toggle split)
 bindsym $mod+s layout stacking
 bindsym $mod+w layout tabbed
-bindsym $mod+e layout toggle split
 
 # toggle tiling / floating
 bindsym $mod+Shift+space floating toggle

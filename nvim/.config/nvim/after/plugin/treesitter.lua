@@ -1,7 +1,6 @@
 local ok_ts, treesitter = pcall(require, "nvim-treesitter.configs")
 if ok_ts then
   treesitter.setup {
-    ensure_installed = "all",
     highlight = {
       enable = true,
     },

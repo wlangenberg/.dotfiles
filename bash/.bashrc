@@ -161,3 +161,10 @@ alias vi='nvim'
 alias ta='tmux attach || tmux'
 . "/home/willie/.deno/env"
 source /home/willie/.local/share/bash-completion/completions/deno.bash
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+. "/home/willie/.deno/env"
+
+export MESA_GL_VERSION_OVERRIDE=3.3 
+export MESA_GLSL_VERSION_OVERRIDE=330
