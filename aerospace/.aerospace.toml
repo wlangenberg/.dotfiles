@@ -57,11 +57,13 @@ automatically-unhide-macos-hidden-apps = false
     alt-shift-space = 'layout floating tiling'
 
     alt-shift-s= 'mode service'
-    alt-shift-c = 'reload-config'
+    alt-shift-ctrl-c = 'reload-config'
     alt-enter = '''exec-and-forget open -na Ghostty'''
+    alt-b = '''exec-and-forget open -na Firefox'''
 
     cmd-h = []
     cmd-m = []
+    alt-m = ['macos-native-minimize']
 
     # cmd-alt-h is used to navigate tabs in chrome
     # cmd-alt-h = []
