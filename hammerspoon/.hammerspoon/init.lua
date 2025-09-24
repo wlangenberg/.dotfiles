@@ -1,6 +1,6 @@
 local resizeFraction = 0.07
-local moveSpeedHorizontally = 0.07
-local moveSpeedVertically = 0.07
+local moveSpeedHorizontally = 0.10
+local moveSpeedVertically = 0.10
 
 local function getPadding(win)
     local screen = win:screen()
