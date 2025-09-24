@@ -3,6 +3,7 @@
 DIRS=(
     "$HOME"
     "$HOME/Projects"
+    "$HOME/git"
 )
 
 if [[ $# -eq 1 ]]; then
