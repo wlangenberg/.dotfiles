@@ -180,5 +180,4 @@ require("lazy").setup({
             "neovim/nvim-lspconfig",
         }
     },
-    "supermaven-inc/supermaven-nvim",
 })
