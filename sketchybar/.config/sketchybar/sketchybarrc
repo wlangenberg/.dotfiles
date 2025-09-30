@@ -9,12 +9,9 @@ ORANGE=0xffff9e64
 RED=0xfff7768e
 BAR_COLOR=0xff1a1b26
 COMMENT=0xff565f89
-
 TRANSPARENT=0x00000000
-
-# General bar colors
-ICON_COLOR=$WHITE  # Color of all icons
-LABEL_COLOR=$WHITE # Color of all labels
+ICON_COLOR=$WHITE
+LABEL_COLOR=$WHITE
 
 ITEM_DIR="$HOME/.config/sketchybar/items"
 PLUGIN_DIR="$HOME/.config/sketchybar/plugins"
@@ -30,25 +27,49 @@ SHADOW=on
 
 PLUGIN_DIR="$CONFIG_DIR/plugins"
 
-sketchybar --bar position=top height=40 color=0xf5060e1c 
+sketchybar --bar height=54        \
+                 margin=12        \
+                 y_offset=0       \
+                 padding_left=10   \
+                 padding_right=10  \
+                 color=0x00000000
 
 default=(
+  background.color=0xEB1e1e2e
+  background.corner_radius=5
   padding_left=7
   padding_right=7
   icon.font="Hack Nerd Font:Bold:17.0"
   label.font="Hack Nerd Font:Bold:14.0"
   icon.color=0xffffffff
   label.color=0xffffffff
-  icon.padding_left=4
+  icon.padding_left=3
+  icon.padding_right=3
+  label.padding_left=3
+  label.padding_right=3
+  height=54       
+  margin=12       
+  y_offset=0      
+  padding_left=0  
+  padding_right=0 
+  color=0x00000000
+  blur_radius=2
+  background.corner_radius=30
+  background.height=30
+  icon.padding_left=13
   icon.padding_right=4
   label.padding_left=4
-  label.padding_right=4
+  label.padding_right=12
+  background.padding_left=18
+  background.border_width=2
+  background.border_color=0xff7aa2f3
+
 )
 
 sketchybar --default "${default[@]}"
+
 sketchybar --add event aerospace_workspace_change
 
-# Set the order of the workspaces
 order=(1 2 3 q w e)
 existing=($(aerospace list-workspaces --all))
 for sid in "${order[@]}"; do
@@ -57,39 +78,34 @@ for sid in "${order[@]}"; do
             --subscribe space.$sid aerospace_workspace_change \
             --set space.$sid \
                 icon="$sid" \
-                icon.padding_left=7 \
-                icon.padding_right=0 \
-                background.color=0x44ffffff \
-                background.corner_radius=5 \
-                background.height=20 \
-                background.drawing=off \
+                background.color=0xEB1e1e2e \
+                background.border_color=0xffff9e64 \
+                icon.padding_left=18 \
                 click_script="aerospace workspace $sid" \
                 script="$CONFIG_DIR/plugins/aerospace.sh $sid"
     fi
 done
 
-sketchybar --add item chevron left \
-           --set chevron icon= label.drawing=off \
-           --add item front_app left \
+sketchybar --add item front_app left \
            --set front_app icon.drawing=off script="$PLUGIN_DIR/front_app.sh" \
            --subscribe front_app front_app_switched
 
+sketchybar --default background.border_color=0xff9ece6a
+
 sketchybar --add item date right \
            --set date update_freq=20 icon=󰸗 script="$PLUGIN_DIR/date.sh" \
-           --add item clock right \
-           --set clock update_freq=10 icon=  script="$PLUGIN_DIR/clock.sh" \
            --add item volume right \
            --set volume script="$PLUGIN_DIR/volume.sh" \
            --subscribe volume volume_change \
-           --add item battery right \
-           --set battery update_freq=120 script="$PLUGIN_DIR/battery.sh" \
-           --subscribe battery system_woke power_source_change \
+           --add item memory right \
+           --set memory \
+           icon= \
+           update_freq=10 \
+           script="$PLUGIN_DIR/memory.sh" \
            --add item cpu right \
            --set cpu \
            icon= \
            update_freq=3 \
-           background.height=26 \
            script="$PLUGIN_DIR/cpu.sh"
 
-##### Force all scripts to run the first time (never do this in a script) #####
 sketchybar --update

@@ -1,22 +1,46 @@
 #!/bin/sh
 
-# Set number of logical CPU cores
-cores=8
+# # Set number of logical CPU cores
+# cores=8
 
-# Get total raw CPU usage across all processes
-raw_total_cpu=$(ps -A -o %cpu | awk '{s+=$1} END {print s}')
+# # Get total raw CPU usage across all processes
+# raw_total_cpu=$(ps -A -o %cpu | awk '{s+=$1} END {print s}')
 
-# Normalize total CPU usage
-total_cpu=$(awk -v raw="$raw_total_cpu" -v cores="$cores" 'BEGIN { printf "%.1f", raw / cores }')
+# # Normalize total CPU usage
+# total_cpu=$(awk -v raw="$raw_total_cpu" -v cores="$cores" 'BEGIN { printf "%.1f", raw / cores }')
 
-# Get top process by CPU usage
-read top_cpu top_cmd <<< $(ps -A -o %cpu,comm | tail -n +2 | sort -nr | head -n 1)
-top_process=$(basename "$top_cmd")
+# # Get top process by CPU usage
+# read top_cpu top_cmd <<< $(ps -A -o %cpu,comm | tail -n +2 | sort -nr | head -n 1)
+# top_process=$(basename "$top_cmd")
 
-# Normalize top process CPU usage
-top_cpu_normalized=$(awk -v cpu="$top_cpu" -v cores="$cores" 'BEGIN { printf "%.1f", cpu / cores }')
+# # Normalize top process CPU usage
+# top_cpu_normalized=$(awk -v cpu="$top_cpu" -v cores="$cores" 'BEGIN { printf "%.1f", cpu / cores }')
 
-sketchybar --set "$NAME" label="$top_process | ${top_cpu_normalized}% (${total_cpu}%)"
+# sketchybar --set "$NAME" label="$top_process | ${top_cpu_normalized}% (${total_cpu}%)"
 
-# old
-# sketchybar --set "$NAME" label="$(ps -A -o %cpu | awk '{s+=$1} END {s /= 8} END {printf "%.1f%%\n", s}')"
+# # old
+# # sketchybar --set "$NAME" label="$(ps -A -o %cpu | awk '{s+=$1} END {s /= 8} END {printf "%.1f%%\n", s}')"
+
+output=$(ps -Ao %cpu,comm -r | awk -v cores=$(sysctl -n hw.ncpu) -v width=10 '
+  function truncate(s, w) {
+    if (length(s) > w) {
+      return substr(s, 1, w-3) "..."
+    }
+    return s
+  }
+  NR==2 {
+    cmd=$2
+    gsub(".*/","",cmd)
+    n=split(cmd,a,".")
+    top=a[n]
+    top = truncate(top, width)
+  }
+  { sum+=$1 }
+  END {
+    avg=sum/cores
+    printf "%-"width"s | %2.0f%%", top, avg
+
+  }')
+
+sketchybar --set "$NAME" label="$output"
+
