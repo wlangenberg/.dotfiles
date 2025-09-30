@@ -1,6 +1,6 @@
 after-login-command = []
 after-startup-command = [
-  'exec-and-forget borders active_color=0xffa2e0c0 inactive_color=0x44a2e0c0 width=14.0 style=round',
+  'exec-and-forget borders active_color=0xffa2e0c0 inactive_color=0x44a2e0c0 width=8.0 style=round',
   'exec-and-forget sketchybar'
 ]
 exec-on-workspace-change = ['/bin/bash', '-c',
@@ -25,7 +25,7 @@ automatically-unhide-macos-hidden-apps = false
 [gaps.outer]
     left =       [{ monitor."built-in" = 20 }, 35]
     bottom =     [{ monitor."built-in" = 20 }, 35]
-    top =        [{ monitor."built-in" = 25 }, 75]
+    top =        [{ monitor."built-in" = 20 }, 65]
     right =      [{ monitor."built-in" = 20 }, 35]
 
 [mode.main.binding]
@@ -59,7 +59,7 @@ automatically-unhide-macos-hidden-apps = false
     alt-shift-s= 'mode service'
     alt-shift-ctrl-c = 'reload-config'
     alt-enter = '''exec-and-forget open -na Ghostty'''
-    alt-b = '''exec-and-forget open -na Firefox'''
+    alt-b = '''exec-and-forget open -na /Applications/Firefox.app'''
 
     cmd-h = []
     cmd-m = []

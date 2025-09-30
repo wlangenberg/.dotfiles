@@ -31,9 +31,8 @@ map("n", "<leader>vrn", "<cmd>lua vim.lsp.buf.rename()<CR>", { noremap = true, s
 map("n", "K", "<cmd>lua vim.lsp.buf.hover()<CR>", { noremap = true, silent = true })
 map("n", "[d", "<cmd>lua vim.diagnostic.goto_prev()<CR>", { noremap = true, silent = true })
 map("n", "]d", "<cmd>lua vim.diagnostic.goto_next()<CR>", { noremap = true, silent = true })
-map("n", "<leader>vd", "<cmd>lua vim.diagnostic.enable(not vim.diagnostic.is_enabled())<CR>",
-    { noremap = true, silent = true })
 map("n", "<leader>e", "<cmd>lua vim.diagnostic.open_float()<CR>", { noremap = true, silent = true })
+map("n", "<leader>vd", "<cmd>lua vim.diagnostic.enable(not vim.diagnostic.is_enabled())<CR>", { noremap = true, silent = true })
 map("n", "<leader>vf", "<cmd>lua vim.diagnostic.setloclist()<CR>", { noremap = true, silent = true })
 map("n", "<leader>vq", "<cmd>lua vim.diagnostic.setqflist()<CR>", { noremap = true, silent = true })
 map("n", "]c", "]czz", { noremap = true, silent = true })

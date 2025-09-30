@@ -1,5 +1,8 @@
-background-opacity=0.80
-background-blur=30
+background-opacity=0.98
+background-blur=10
 background=#252528
-
-font-family=JetBrainsMonoNL NFM ExtraLight
+theme=Dracula+
+macos-titlebar-style=hidden
+font-family=SF Mono Regular
+window-padding-y=10
+window-padding-x=10
