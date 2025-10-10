@@ -1,4 +1,4 @@
-background-opacity=0.98
+background-opacity=1.0
 background-blur=10
 background=#252528
 theme=Dracula+
@@ -6,3 +6,4 @@ macos-titlebar-style=hidden
 font-family=SF Mono Regular
 window-padding-y=10
 window-padding-x=10
+shell-integration-features = sudo

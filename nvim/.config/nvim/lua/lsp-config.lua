@@ -83,11 +83,6 @@ cmp.setup.filetype('sql', {
     },
 })
 
-vim.api.nvim_create_autocmd("FileType", {
-    pattern = "sql",
-    callback = function() vim.bo.commentstring = "--%s" end,
-})
-
 -- Make autopairs and completion work together
 local cmp_autopairs = require('nvim-autopairs.completion.cmp')
 cmp.event:on('confirm_done', cmp_autopairs.on_confirm_done())

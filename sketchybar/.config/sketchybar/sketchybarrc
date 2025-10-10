@@ -97,15 +97,15 @@ sketchybar --add item date right \
            --add item volume right \
            --set volume script="$PLUGIN_DIR/volume.sh" \
            --subscribe volume volume_change \
-           --add item memory right \
-           --set memory \
-           icon= \
-           update_freq=10 \
-           script="$PLUGIN_DIR/memory.sh" \
            --add item cpu right \
            --set cpu \
            icon= \
            update_freq=3 \
            script="$PLUGIN_DIR/cpu.sh"
+           # --add item memory right \
+           # --set memory \
+           # icon= \
+           # update_freq=10 \
+           # script="$PLUGIN_DIR/memory.sh" \
 
 sketchybar --update
