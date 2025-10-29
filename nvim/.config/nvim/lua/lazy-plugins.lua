@@ -150,11 +150,12 @@ require("lazy").setup({
 
             require("oil").setup {
                 columns = { "icon" },
+                float = { max_width = 0.7 },
                 keymaps = {
-                    -- ["<C-h>"] = false,
-                    -- ["<C-l>"] = false,
-                    -- ["<C-k>"] = false,
-                    -- ["<C-j>"] = false,
+                    ["<C-h>"] = false,
+                    ["<C-l>"] = false,
+                    ["<C-k>"] = false,
+                    ["<C-j>"] = false,
                     ["<M-h>"] = "actions.select_split",
                 },
                 win_options = {

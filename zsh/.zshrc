@@ -26,12 +26,13 @@ export PATH="$HOME/.local/share/nvim/mason/bin:$PATH"
 alias vim="nvim"
 alias vi="nvim"
 alias gs="git status"
-alias gb="git branch"
+alias gb="git branch|grep '*'|tr -d '*'|tr -d '[:space:]'"
 alias gd="git diff"
 alias ta="tmux attach || tmux"
 alias ls="ls -G"
 alias ll="ls -l"
 alias fkill='ps -e -o pid,comm | fzf --preview "echo {}" | awk "{print \$1}" | xargs kill -9'
+alias nuke_docker='docker stop $(docker ps -a -q);docker rm $(docker ps -a -q)'
 
 # python alias
 pc() {

@@ -19,14 +19,14 @@ automatically-unhide-macos-hidden-apps = false
     preset = 'qwerty'
 
 [gaps.inner]
-    horizontal = [{ monitor."built-in" = 25 }, 40]
-    vertical =  [{ monitor."built-in" = 25 }, 40]
+    horizontal = [{ monitor."built-in" = 25 }, 20]
+    vertical =  [{ monitor."built-in" = 25 }, 20]
 
 [gaps.outer]
-    left =       [{ monitor."built-in" = 20 }, 35]
-    bottom =     [{ monitor."built-in" = 20 }, 35]
-    top =        [{ monitor."built-in" = 20 }, 65]
-    right =      [{ monitor."built-in" = 20 }, 35]
+    left =       [{ monitor."built-in" = 20 }, 15]
+    bottom =     [{ monitor."built-in" = 20 }, 15]
+    top =        [{ monitor."built-in" = 20 }, 45]
+    right =      [{ monitor."built-in" = 20 }, 15]
 
 [mode.main.binding]
 

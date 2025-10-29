@@ -3,9 +3,10 @@ local cmp = require('cmp')
 local luasnip = require('luasnip')
 
 vim.lsp.enable({
+    "eslint", "tsserver", "ts_ls",
     "gopls", "rust_analyzer",
     "cssls", "jsonls", "lua_ls", "html",
-    "htmx", "svelte", "ruff"
+    "svelte", "ruff"
 })
 
 -- vim.api.nvim_create_autocmd("LspAttach", {

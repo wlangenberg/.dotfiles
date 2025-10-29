@@ -1,9 +1,15 @@
 background-opacity=1.0
-background-blur=10
+background-blur=0
 background=#252528
+
 theme=Dracula+
-macos-titlebar-style=hidden
+font-size=26
 font-family=SF Mono Regular
-window-padding-y=10
-window-padding-x=10
-shell-integration-features = sudo
+#font-family=FiraCode Nerd Font Mono
+
+macos-titlebar-style=hidden
+window-padding-y=5
+window-padding-x=5
+
+# shell-integration-features = sudo
+term=xterm-256color

@@ -27,18 +27,18 @@ SHADOW=on
 
 PLUGIN_DIR="$CONFIG_DIR/plugins"
 
-sketchybar --bar height=54        \
+sketchybar --bar height=30        \
                  margin=12        \
                  y_offset=0       \
-                 padding_left=10   \
-                 padding_right=10  \
+                 padding_left=0   \
+                 padding_right=0  \
                  color=0x00000000
 
 default=(
   background.color=0xEB1e1e2e
   background.corner_radius=5
-  padding_left=7
-  padding_right=7
+  padding_left=0
+  padding_right=0
   icon.font="Hack Nerd Font:Bold:17.0"
   label.font="Hack Nerd Font:Bold:14.0"
   icon.color=0xffffffff
@@ -47,7 +47,7 @@ default=(
   icon.padding_right=3
   label.padding_left=3
   label.padding_right=3
-  height=54       
+  height=30       
   margin=12       
   y_offset=0      
   padding_left=0  
@@ -60,7 +60,7 @@ default=(
   icon.padding_right=4
   label.padding_left=4
   label.padding_right=12
-  background.padding_left=18
+  background.padding_left=5
   background.border_width=2
   background.border_color=0xff7aa2f3
 

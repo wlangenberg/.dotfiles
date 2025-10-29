@@ -5,7 +5,7 @@ end
 
 telescope.setup {
     defaults = {
-        file_ignore_patterns = { "undodir/*", "node_modules", ".git/", "%.min%.js$" },
+        file_ignore_patterns = { "undodir/*", ".git/", "%.min%.js$" },
         preview = {
             timeout = 200,
         },
@@ -28,7 +28,7 @@ local telescope_builtin = require('telescope.builtin')
 local my_find_files
 my_find_files = function(opts, no_ignore)
     opts = opts or {}
-    no_ignore = vim.F.if_nil(no_ignore, true)
+    no_ignore = vim.F.if_nil(no_ignore, false)
     opts.attach_mappings = function(_, map)
         map({ "n", "i" }, "<C-h>", function(prompt_bufnr)
             local prompt = require("telescope.actions.state").get_current_line()
@@ -46,6 +46,7 @@ my_find_files = function(opts, no_ignore)
         telescope_builtin.find_files(opts)
     else
         opts.prompt_title = "Find Files"
+        opts.hidden = true
         telescope_builtin.find_files(opts)
     end
 end
@@ -53,7 +54,7 @@ end
 local my_live_grep
 my_live_grep = function(opts, no_ignore)
     opts = opts or {}
-    no_ignore = vim.F.if_nil(no_ignore, true)
+    no_ignore = vim.F.if_nil(no_ignore, false)
 
     opts.attach_mappings = function(_, map)
         map({ "n", "i" }, "<C-h>", function(prompt_bufnr)
@@ -73,6 +74,7 @@ my_live_grep = function(opts, no_ignore)
         telescope_builtin.live_grep(opts)
     else
         opts.prompt_title = "Live Grep"
+        opts.hidden = true
         telescope_builtin.live_grep(opts)
     end
 end
@@ -88,3 +90,9 @@ map("n", "gd", telescope_builtin.lsp_definitions)
 map("n", "gi", telescope_builtin.lsp_implementations)
 map("n", "gr", telescope_builtin.lsp_references)
 map("n", "<leader>K", telescope_builtin.lsp_type_definitions)
+
+vim.keymap.del('n', 'grr')
+vim.keymap.del('n', 'grn')
+vim.keymap.del('n', 'grt')
+vim.keymap.del('n', 'gri')
+vim.keymap.del('n', 'gra')

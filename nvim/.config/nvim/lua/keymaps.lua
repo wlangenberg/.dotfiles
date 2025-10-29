@@ -37,3 +37,4 @@ map("n", "<leader>vf", "<cmd>lua vim.diagnostic.setloclist()<CR>", { noremap = t
 map("n", "<leader>vq", "<cmd>lua vim.diagnostic.setqflist()<CR>", { noremap = true, silent = true })
 map("n", "]c", "]czz", { noremap = true, silent = true })
 map("n", "[c", "[czz", { noremap = true, silent = true })
+map('n', 'gt', '<C-]>', { desc = 'Go to Tag (definition)' })
