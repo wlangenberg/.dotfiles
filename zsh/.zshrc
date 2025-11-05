@@ -8,6 +8,7 @@ esac
 
 # Set up fzf key bindings and fuzzy completion
 source <(fzf --zsh)
+
 # The following lines have been added by Docker Desktop to enable Docker CLI completions.
 fpath=(/Users/willie/.docker/completions $fpath)
 autoload -Uz compinit
@@ -21,6 +22,7 @@ eval "$(zoxide init zsh)"
 export GOPATH=$HOME/go
 export PATH="$PATH:$GOPATH/bin"
 export PATH="$HOME/.local/share/nvim/mason/bin:$PATH"
+export PATH="/opt/homebrew/opt/coreutils/libexec/gnubin:$PATH"
 
 # aliases
 alias vim="nvim"
@@ -45,3 +47,9 @@ pc() {
 if [ -f "$HOME/.zsh_secrets" ]; then
   source "$HOME/.zsh_secrets"
 fi
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+# export DOCKER_DEFAULT_PLATFORM=linux/amd64

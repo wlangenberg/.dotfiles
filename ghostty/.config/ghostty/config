@@ -3,7 +3,7 @@ background-blur=0
 background=#252528
 
 theme=Dracula+
-font-size=26
+font-size=18
 font-family=SF Mono Regular
 #font-family=FiraCode Nerd Font Mono
 
@@ -13,3 +13,4 @@ window-padding-x=5
 
 # shell-integration-features = sudo
 term=xterm-256color
+macos-option-as-alt = right
