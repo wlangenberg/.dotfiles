@@ -18,6 +18,9 @@ compinit
 # Init zoxide
 eval "$(zoxide init zsh)"
 
+# Settings
+set -o vi
+
 # Go
 export GOPATH=$HOME/go
 export PATH="$PATH:$GOPATH/bin"
@@ -33,7 +36,7 @@ alias gd="git diff"
 alias gp="git pull"
 alias dc="docker compose"
 alias ta="tmux attach || tmux"
-alias ls="ls -G"
+alias ls="ls --color"
 alias ll="ls -l"
 alias fkill='ps -e -o pid,comm | fzf --preview "echo {}" | awk "{print \$1}" | xargs kill -9'
 alias nuke_docker='docker stop $(docker ps -a -q);docker rm $(docker ps -a -q)'

@@ -181,4 +181,12 @@ require("lazy").setup({
             "neovim/nvim-lspconfig",
         }
     },
+    {
+        "nvim-zh/colorful-winsep.nvim",
+        config = function()
+            require('colorful-winsep').setup({
+                border = "rounded", -- Options: "single", "rounded", "bold", "double"
+            })
+        end
+    },
 })

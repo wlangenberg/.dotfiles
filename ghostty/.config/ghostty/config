@@ -8,6 +8,7 @@ font-family=SF Mono Regular
 #font-family=FiraCode Nerd Font Mono
 
 macos-titlebar-style=hidden
+window-decoration=false
 window-padding-y=5
 window-padding-x=5
 
