@@ -40,6 +40,7 @@ alias ls="ls --color"
 alias ll="ls -l"
 alias fkill='ps -e -o pid,comm | fzf --preview "echo {}" | awk "{print \$1}" | xargs kill -9'
 alias nuke_docker='docker stop $(docker ps -a -q);docker rm $(docker ps -a -q)'
+alias sourcevenv='source ./.venv/bin/activate'
 
 # python alias
 pc() {

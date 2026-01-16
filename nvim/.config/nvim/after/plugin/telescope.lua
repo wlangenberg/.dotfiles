@@ -5,7 +5,7 @@ end
 
 telescope.setup {
     defaults = {
-        file_ignore_patterns = { "undodir/*", ".git/", "%.min%.js$" },
+        file_ignore_patterns = { "undodir/*", ".git/", "%.min%.js$", "vendor" },
         preview = {
             timeout = 200,
         },

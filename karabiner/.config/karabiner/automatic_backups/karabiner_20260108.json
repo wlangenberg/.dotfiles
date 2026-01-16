@@ -410,7 +410,7 @@
                                 "to_if_held_down": [
                                     {
                                         "key_code": "right_shift",
-                                        "modifiers": ["right_command", "left_option", "right_control"]
+                                        "modifiers": ["right_command", "right_option", "right_control"]
                                     }
                                 ],
                                 "type": "basic"
@@ -426,7 +426,7 @@
                                 "to_if_held_down": [
                                     {
                                         "key_code": "right_shift",
-                                        "modifiers": ["left_option", "right_control"]
+                                        "modifiers": ["right_option", "right_control"]
                                     }
                                 ],
                                 "type": "basic"
@@ -442,7 +442,7 @@
                                 "to_if_held_down": [
                                     {
                                         "key_code": "right_shift",
-                                        "modifiers": ["right_command", "left_option"]
+                                        "modifiers": ["right_command", "right_option"]
                                     }
                                 ],
                                 "type": "basic"
@@ -458,7 +458,7 @@
                                 "to_if_held_down": [
                                     {
                                         "key_code": "right_control",
-                                        "modifiers": ["right_command", "left_option"]
+                                        "modifiers": ["right_command", "right_option"]
                                     }
                                 ],
                                 "type": "basic"
@@ -478,7 +478,7 @@
                                 "to_if_held_down": [
                                     {
                                         "key_code": "right_control",
-                                        "modifiers": ["left_option"]
+                                        "modifiers": ["right_option"]
                                     }
                                 ],
                                 "type": "basic"
@@ -498,7 +498,7 @@
                                 "to_if_held_down": [
                                     {
                                         "key_code": "right_control",
-                                        "modifiers": ["left_option"]
+                                        "modifiers": ["right_option"]
                                     }
                                 ],
                                 "type": "basic"
@@ -738,7 +738,7 @@
                                 "to_if_held_down": [
                                     {
                                         "halt": true,
-                                        "key_code": "left_option"
+                                        "key_code": "right_option"
                                     }
                                 ],
                                 "type": "basic"

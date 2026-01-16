@@ -8,16 +8,16 @@ local function getPadding(win)
     if name:lower():find("built%-in") then
         return 20
     end
-    return 35
+    return 15
 end
 
 local function getPaddingTop(win)
     local screen = win:screen()
     local name = screen:name()
     if name:lower():find("built%-in") then
-        return 25
+        return 20
     end
-    return 75
+    return 45
 end
 
 -- Move right
