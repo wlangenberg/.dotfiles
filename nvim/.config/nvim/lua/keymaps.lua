@@ -39,3 +39,4 @@ map("n", "<leader>vq", "<cmd>lua vim.diagnostic.setqflist()<CR>", { noremap = tr
 map("n", "]c", "]czz", { noremap = true, silent = true })
 map("n", "[c", "[czz", { noremap = true, silent = true })
 map('n', 'gt', '<C-]>', { desc = 'Go to Tag (definition)' })
+map({'n', 'i', 'v'}, '<C-z>', '<Nop>', {noremap = true, silent = true})
