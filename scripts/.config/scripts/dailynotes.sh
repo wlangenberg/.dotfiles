@@ -7,7 +7,7 @@ filename="$todays_date.md"
 file="$folder/$filename"
 
 if [ ! -f "$file" ]; then
-    echo "$(date -I)\n\n" > $file;
+    printf "%s\n\n\n" "# $(date -I)" > "$file"
 fi
 
 nvim -c 'set laststatus=0' + "$file"
