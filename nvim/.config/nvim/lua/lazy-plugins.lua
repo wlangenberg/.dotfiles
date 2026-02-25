@@ -181,4 +181,30 @@ require("lazy").setup({
             "neovim/nvim-lspconfig",
         }
     },
+    {
+        "stevearc/conform.nvim",
+        event = { "BufReadPre", "BufNewFile" },
+        config = function()
+            require("conform").setup({
+                -- Map your filetypes to prettier
+                formatters_by_ft = {
+                    javascript = { "prettier" },
+                    typescript = { "prettier" },
+                    javascriptreact = { "prettier" },
+                    typescriptreact = { "prettier" },
+                    css = { "prettier" },
+                    html = { "prettier" },
+                    json = { "prettier" },
+                },
+            })
+
+            vim.keymap.set({ "n", "v" }, "<leader>fm", function()
+                require("conform").format({
+                    lsp_fallback = true,
+                    async = false,
+                    timeout_ms = 1000,
+                })
+            end, { desc = "Format file or range (with Prettier)" })
+        end,
+    }
 })
