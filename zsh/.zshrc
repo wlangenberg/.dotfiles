@@ -45,7 +45,7 @@ alias sourcevenv='source ./.venv/bin/activate'
 
 # python alias
 pc() {
-  python3 -c "print($*)"
+  python3 -c "from math import *; print($*)"
 }
 
 . "$HOME/.local/bin/env"
