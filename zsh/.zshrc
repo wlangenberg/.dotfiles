@@ -27,6 +27,9 @@ export PATH="$PATH:$GOPATH/bin"
 export PATH="$HOME/.local/share/nvim/mason/bin:$PATH"
 export PATH="/opt/homebrew/opt/coreutils/libexec/gnubin:$PATH"
 
+# Custom exports
+export REMINDER_SOUND=on
+
 # aliases
 alias vim="nvim"
 alias vi="nvim"

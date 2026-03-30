@@ -4,6 +4,7 @@ DIRS=(
     "$HOME"
     "$HOME/Projects"
     "$HOME/git"
+    "$HOME/tmp"
 )
 
 if [[ $# -eq 1 ]]; then
