@@ -30,6 +30,9 @@ export PATH="/opt/homebrew/opt/coreutils/libexec/gnubin:$PATH"
 # Custom exports
 export REMINDER_SOUND=on
 
+# opencode
+export PATH=/Users/willie/.opencode/bin:$PATH
+
 # aliases
 alias vim="nvim"
 alias vi="nvim"
