@@ -6,39 +6,55 @@ vim.lsp.enable({
     "eslint", "tsserver", "ts_ls",
     "gopls", "rust_analyzer",
     "cssls", "jsonls", "lua_ls", "html",
-    "svelte", "ruff"
+    "svelte", "ruff", "openapi", "vacuum",
+    "emmet_language_server", "tailwindcss"
 })
 
--- vim.api.nvim_create_autocmd("LspAttach", {
---     group = vim.api.nvim_create_augroup('lsp_attach_disable_ruff_hover', { clear = true }),
---     callback = function(args)
---         local client = vim.lsp.get_client_by_id(args.data.client_id)
---         if client == nil then
---             return
---         end
---         if client.name == 'ruff' then
---             -- Disable hover in favor of Pyright
---             client.server_capabilities.hoverProvider = false
---         end
---     end,
---     desc = 'LSP: Disable hover capability from Ruff',
--- })
+-- gopls configuration with formatting and analyses
+vim.lsp.config("gopls", {
+    settings = {
+        gopls = {
+            analyses = {
+                unusedparams = true,
+                shadow = true,
+            },
+            staticcheck = true,
+            gofumpt = true,
+        },
+    },
+})
 
--- lspconfig.templ.setup { on_attach = on_attach, capabilities = capabilities, filetypes = { "templ" } }
--- lspconfig.html.setup { on_attach = on_attach, capabilities = capabilities, filetypes = { "html", "templ" } }
--- lspconfig.htmx.setup { on_attach = on_attach, capabilities = capabilities, filetypes = { "html", "templ" } }
--- lspconfig.ts_ls.setup { on_attach = on_attach, capabilities = capabilities, filetypes = { "typescript", "javascript", "svelte" } }
--- lspconfig.emmet_language_server.setup {
---     filetypes = { "eruby", "html", "javascript", "javascriptreact", "less", "sass", "scss", "pug", "typescriptreact", "htmx", "templ" },
+-- Emmet language server configuration with templ support
+vim.lsp.config("emmet_language_server", {
+    filetypes = { "eruby", "html", "javascript", "javascriptreact", "less", "sass", "scss", "pug", "typescriptreact", "htmx", "templ", "go" },
+    init_options = {},
+})
+
+-- vim.lsp.config("tailwindcss", {
+--     filetypes = { "eruby", "html", "javascript", "javascriptreact", "less", "sass", "scss", "pug", "typescriptreact", "htmx", "templ", "go" },
 --     init_options = {},
--- }
--- lspconfig.tailwindcss.setup {
---     on_attach = on_attach,
---     capabilities = capabilities,
---     filetypes = { "html", "astro", "javascript", "typescript", "react", "vue", "svelte", "templ", "htmlangular" },
---     init_options = { userLanguages = { templ = "html" } },
--- }
--- vim.filetype.add({ extension = { templ = "templ" } })
+-- })
+vim.lsp.config("tailwindcss", {
+    filetypes = {
+        "eruby", "html", "javascript", "javascriptreact",
+        "less", "sass", "scss", "pug", "typescriptreact",
+        "htmx", "templ", "go"
+    },
+    settings = {
+        tailwindCSS = {
+            experimental = {
+                classRegex = {
+                    -- matches class="..."
+                    "class\\s*=\\s*\"([^\"]*)\"",
+                    -- matches Class("...")
+                    "Class\\(\"([^\"]*)\"\\)",
+                    -- matches gomponents Attr("class", "...")
+                    "Attr\\(\"class\",\\s*\"([^\"]*)\"\\)",
+                },
+            },
+        },
+    },
+})
 
 -- nvim-cmp setup
 cmp.setup({

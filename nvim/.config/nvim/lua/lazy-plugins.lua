@@ -95,7 +95,9 @@ require("lazy").setup({
     },
     {
         'nvim-treesitter/nvim-treesitter',
-        run = ':TSUpdate'
+        branch = "main",
+        lazy = false,
+        build = ':TSUpdate'
     },
     'nvim-treesitter/nvim-treesitter-context',
     {
@@ -189,6 +191,7 @@ require("lazy").setup({
                 -- Map your filetypes to prettier
                 formatters_by_ft = {
                     javascript = { "prettier" },
+                    go = { "gofumpt", "gofmt", "goimports" },
                     typescript = { "prettier" },
                     javascriptreact = { "prettier" },
                     typescriptreact = { "prettier" },

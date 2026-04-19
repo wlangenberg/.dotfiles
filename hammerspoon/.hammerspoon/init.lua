@@ -29,7 +29,7 @@ hs.hotkey.bind({ "alt", "shift" }, "Right", function()
     local padding = getPadding(win)
 
     f.x = math.min(max.x + max.w - padding - f.w,
-                   f.x + (max.w * moveSpeedHorizontally))
+        f.x + (max.w * moveSpeedHorizontally))
     win:setFrame(f)
 end)
 
@@ -42,7 +42,7 @@ hs.hotkey.bind({ "alt", "shift" }, "Left", function()
     local padding = getPadding(win)
 
     f.x = math.max(max.x + padding,
-                   f.x - (max.w * moveSpeedHorizontally))
+        f.x - (max.w * moveSpeedHorizontally))
     win:setFrame(f)
 end)
 
@@ -55,7 +55,7 @@ hs.hotkey.bind({ "alt", "shift" }, "Down", function()
     local padding = getPadding(win)
 
     f.y = math.min(max.y + max.h - padding - f.h,
-                   f.y + (max.h * moveSpeedVertically))
+        f.y + (max.h * moveSpeedVertically))
     win:setFrame(f)
 end)
 
@@ -68,7 +68,7 @@ hs.hotkey.bind({ "alt", "shift" }, "Up", function()
     local padding = getPaddingTop(win)
 
     f.y = math.max(max.y + padding,
-                   f.y - (max.h * moveSpeedVertically))
+        f.y - (max.h * moveSpeedVertically))
     win:setFrame(f)
 end)
 
@@ -90,7 +90,7 @@ hs.hotkey.bind({ "alt", "shift" }, "P", function()
     local max = win:screen():frame()
     local padding = getPadding(win)
     f.w = math.min(max.x + max.w - padding - f.x,
-                   f.w + (max.w * resizeFraction))
+        f.w + (max.w * resizeFraction))
     win:setFrame(f)
 end)
 
@@ -112,7 +112,7 @@ hs.hotkey.bind({ "alt", "shift" }, "I", function()
     local max = win:screen():frame()
     local padding = getPadding(win)
     f.h = math.min(max.y + max.h - padding - f.y,
-                   f.h + (max.h * resizeFraction))
+        f.h + (max.h * resizeFraction))
     win:setFrame(f)
 end)
 
@@ -128,4 +128,3 @@ hs.hotkey.bind({ "alt", "shift" }, "C", function()
     local newY = max.y + padding + ((max.h - 2 * padding) - newH) / 2
     win:setFrame(hs.geometry.rect(newX, newY, newW, newH))
 end)
-
