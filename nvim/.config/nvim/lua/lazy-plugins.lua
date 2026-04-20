@@ -11,6 +11,11 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
+-- vim ui2
+require("vim._core.ui2").enable({
+    enable = true,
+})
+
 require("lazy").setup({
     defaults = { lazy = true },
     performance = {
