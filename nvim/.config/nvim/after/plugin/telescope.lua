@@ -91,6 +91,7 @@ map("n", "gi", telescope_builtin.lsp_implementations)
 map("n", "gr", telescope_builtin.lsp_references)
 map("n", "<leader>K", telescope_builtin.lsp_type_definitions)
 
+vim.keymap.del('n', 'grx')
 vim.keymap.del('n', 'grr')
 vim.keymap.del('n', 'grn')
 vim.keymap.del('n', 'grt')
