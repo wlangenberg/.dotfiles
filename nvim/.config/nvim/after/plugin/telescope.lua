@@ -22,6 +22,7 @@ telescope.setup {
 
 pcall(telescope.load_extension, 'fzf')
 pcall(telescope.load_extension, 'luasnip')
+pcall(telescope.load_extension, 'live_grep')
 
 local telescope_builtin = require('telescope.builtin')
 
