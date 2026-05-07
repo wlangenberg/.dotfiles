@@ -214,5 +214,17 @@ require("lazy").setup({
                 })
             end, { desc = "Format file or range (with Prettier)" })
         end,
+    },
+    'mfussenegger/nvim-dap',
+    'rcarriga/nvim-dap-ui',
+    'nvim-neotest/nvim-nio',
+    'leoluz/nvim-dap-go',
+    {
+        'nvim-neotest/neotest',
+        dependencies = {
+            'nvim-neotest/nvim-nio',
+            'nvim-lua/plenary.nvim',
+            'nvim-neotest/neotest-go',
+        }
     }
 })
