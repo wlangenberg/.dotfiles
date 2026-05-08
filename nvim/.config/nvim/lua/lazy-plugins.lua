@@ -82,6 +82,7 @@ require("lazy").setup({
     "stevearc/dressing.nvim",
     "nvim-lua/plenary.nvim",
     "MunifTanjim/nui.nvim",
+    "nvim-telescope/telescope-dap.nvim",
     {
         'nvim-telescope/telescope.nvim',
         branch = 'master',
@@ -226,5 +227,17 @@ require("lazy").setup({
             'nvim-lua/plenary.nvim',
             'nvim-neotest/neotest-go',
         }
+    },
+    {
+        'Wansmer/treesj',
+        -- keys = { '<space>m', '<space>j', '<space>s' },
+        dependencies = { 'nvim-treesitter/nvim-treesitter' },
+        config = function()
+            require('treesj').setup({
+                use_default_keymaps = false,
+            })
+            -- Example keymaps
+            vim.keymap.set('n', 'gS', require('treesj').toggle, { desc = "Toggle split/join" })
+        end,
     }
 })

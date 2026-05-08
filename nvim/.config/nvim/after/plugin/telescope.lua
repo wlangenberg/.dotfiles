@@ -23,6 +23,7 @@ telescope.setup {
 pcall(telescope.load_extension, 'fzf')
 pcall(telescope.load_extension, 'luasnip')
 pcall(telescope.load_extension, 'live_grep')
+pcall(telescope.load_extension, 'dap')
 
 local telescope_builtin = require('telescope.builtin')
 
@@ -84,6 +85,7 @@ local map = vim.keymap.set
 map("n", "<leader>ff", my_find_files, { noremap = true, silent = true })
 map("n", "<leader>fg", my_live_grep, { noremap = true, silent = true })
 map("n", "<leader>fb", telescope_builtin.buffers, { noremap = true, silent = true })
+map("n", "<leader>fB", "<cmd>Telescope dap list_breakpoints<CR>", { noremap = true, silent = true, desc = "Telescope: List breakpoints" })
 map("n", "<leader>fh", telescope_builtin.help_tags, { noremap = true, silent = true })
 map("v", "<leader>qq", '"zy:Telescope live_grep default_text=<C-r>z<CR>', { noremap = true, silent = true })
 map("n", "<leader>fs", "<cmd>Telescope lsp_document_symbols<CR>", { noremap = true, silent = true })

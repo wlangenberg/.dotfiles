@@ -16,6 +16,28 @@ dap_go.setup({
     tests = {
         verbose = false,
     },
+    dap_configurations = {
+        {
+            type = "go",
+            name = "Debug muninn",
+            request = "launch",
+            program = "./cmd/server/main.go",
+            args = { "-config", "local" },
+        },
+        {
+            type = "go",
+            name = "Attach Remote",
+            mode = "remote",
+            request = "attach",
+            port = 2345,
+            substitutePath = {
+              {
+                from = "${workspaceFolder}",
+                to = "${workspaceFolder}",
+              },
+            },
+        },
+    },
 })
 
 -- Additional Go-specific keymaps
