@@ -32,6 +32,7 @@ vim.o.laststatus = 2
 vim.o.undodir = os.getenv("HOME") .. "/.vim/undodir"
 vim.o.undofile = true
 vim.o.fileformat = "unix"
+vim.o.splitright = true
 
 vim.filetype.add({
   pattern = {
