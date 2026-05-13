@@ -10,6 +10,7 @@ neotest.setup({
             -- experimental = {
             --     test_table = true,
             -- },
+            strategy = "dap",
             args = { "-count=1", "-timeout=60s" },
             recursive_run = true,
         }),

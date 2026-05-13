@@ -19,13 +19,6 @@ dap_go.setup({
     dap_configurations = {
         {
             type = "go",
-            name = "Debug muninn",
-            request = "launch",
-            program = "./cmd/server/main.go",
-            args = { "-config", "local" },
-        },
-        {
-            type = "go",
             name = "Attach Remote",
             mode = "remote",
             request = "attach",
@@ -39,6 +32,13 @@ dap_go.setup({
         },
     },
 })
+
+-- Load project-local dap config
+local project_dap = vim.fn.getcwd() .. "/.nvim_debug_cfg/dap.lua"
+
+if vim.fn.filereadable(project_dap) == 1 then
+    dofile(project_dap)
+end
 
 -- Additional Go-specific keymaps
 local map = vim.keymap.set
