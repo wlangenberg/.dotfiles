@@ -257,5 +257,12 @@ require("lazy").setup({
             "nvim-lua/plenary.nvim",
         },
         config = true,
-    }
+    },
+    {
+        "ThePrimeagen/refactoring.nvim",
+        dependencies = {
+            "lewis6991/async.nvim",
+        },
+        lazy = false,
+    },
 })
