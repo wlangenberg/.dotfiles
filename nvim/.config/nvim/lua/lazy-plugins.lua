@@ -111,12 +111,20 @@ require("lazy").setup({
         branch = "harpoon2",
         dependencies = { "nvim-lua/plenary.nvim" }
     },
+    -- {
+    --     'folke/tokyonight.nvim',
+    --     lazy = false,
+    --     priority = 1000,
+    --     config = function()
+    --         vim.cmd("colorscheme tokyonight")
+    --     end
+    -- },
     {
-        'folke/tokyonight.nvim',
+        'EdenEast/nightfox.nvim',
         lazy = false,
         priority = 1000,
         config = function()
-            vim.cmd("colorscheme tokyonight")
+            vim.cmd("colorscheme carbonfox")
         end
     },
     'mfussenegger/nvim-lint',
@@ -235,6 +243,7 @@ require("lazy").setup({
         config = function()
             require('treesj').setup({
                 use_default_keymaps = false,
+                max_join_length = 500,
             })
             -- Example keymaps
             vim.keymap.set('n', 'gS', require('treesj').toggle, { desc = "Toggle split/join" })

@@ -33,7 +33,9 @@ vim.o.undodir = os.getenv("HOME") .. "/.vim/undodir"
 vim.o.undofile = true
 vim.o.fileformat = "unix"
 vim.o.splitright = true
+vim.o.colorcolumn = "90"
 
+-- add bash as sketchybarrc filetype
 vim.filetype.add({
   pattern = {
     ['sketchybarrc'] = 'bash',
