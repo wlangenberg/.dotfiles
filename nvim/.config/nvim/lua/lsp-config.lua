@@ -41,14 +41,23 @@ vim.lsp.config("tailwindcss", {
         "less", "sass", "scss", "pug", "typescriptreact",
         "htmx", "templ", "go"
     },
+    init_options = {
+        userLanguages = {
+            go = "html",
+        },
+    },
     settings = {
         tailwindCSS = {
+            classFunctions = {
+                "Class",
+            },
             experimental = {
                 classRegex = {
                     -- matches class="..."
                     "class\\s*=\\s*\"([^\"]*)\"",
                     -- matches Class("...")
                     "Class\\(\"([^\"]*)\"\\)",
+                    "Class\\(\\s*\"([^\"]*)\"\\s*\\)",
                     -- matches gomponents Attr("class", "...")
                     "Attr\\(\"class\",\\s*\"([^\"]*)\"\\)",
                 },

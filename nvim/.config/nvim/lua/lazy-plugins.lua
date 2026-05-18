@@ -172,6 +172,7 @@ require("lazy").setup({
                     ["<C-l>"] = false,
                     ["<C-k>"] = false,
                     ["<C-j>"] = false,
+                    ["R"] = "actions.refresh",
                     ["<M-h>"] = "actions.select_split",
                 },
                 win_options = {
@@ -248,5 +249,13 @@ require("lazy").setup({
             -- Example keymaps
             vim.keymap.set('n', 'gS', require('treesj').toggle, { desc = "Toggle split/join" })
         end,
+    },
+    {
+        "oysandvik94/curl.nvim",
+        cmd = { "CurlOpen" },
+        dependencies = {
+            "nvim-lua/plenary.nvim",
+        },
+        config = true,
     }
 })

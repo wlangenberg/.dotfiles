@@ -22,10 +22,9 @@ if ok_dapui then
         layouts = {
             {
                 elements = {
-                    { id = "scopes", size = 0.5 },
-                    { id = "console", size = 0.5 },
+                    { id = "scopes", size = 1 },
                 },
-                size = 0.25,
+                size = 0.5,
                 position = "bottom",
             },
         },
