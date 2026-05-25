@@ -34,6 +34,7 @@ vim.o.undofile = true
 vim.o.fileformat = "unix"
 vim.o.splitright = true
 vim.o.colorcolumn = "90"
+vim.o.cmdheight = 0
 
 -- add bash as sketchybarrc filetype
 vim.filetype.add({
