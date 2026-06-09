@@ -24,7 +24,7 @@ if ok_dapui then
                 elements = {
                     { id = "scopes", size = 1 },
                 },
-                size = 0.5,
+                size = 0.1,
                 position = "bottom",
             },
         },

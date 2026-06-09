@@ -29,7 +29,7 @@ send_notification() {
         ;;
     darwin*)
         if [[ "$REMINDER_SOUND" != "off" ]]; then
-            osascript -e 'display notification "'"$message"'" with title "'"$title"'" sound name ""'
+            osascript -e 'display notification "'"$message"'" with title "'"$title"'" sound name "Hero"'
         else
             osascript -e 'display notification "'"$message"'" with title "'"$title"'"'
         fi

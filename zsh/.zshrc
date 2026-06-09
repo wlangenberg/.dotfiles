@@ -21,6 +21,9 @@ eval "$(zoxide init zsh)"
 # Settings
 set -o vi
 
+# bindkey
+bindkey -M viins '^E' _expand_alias
+
 # Go
 export GOPATH=$HOME/go
 export PATH="$PATH:$GOPATH/bin"
