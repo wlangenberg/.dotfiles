@@ -1,6 +1,7 @@
 -- LSP settings
 local cmp = require('cmp')
 local luasnip = require('luasnip')
+local capabilities = require('cmp_nvim_lsp').default_capabilities()
 
 vim.lsp.enable({
     "eslint", "tsserver", "ts_ls",
@@ -12,40 +13,41 @@ vim.lsp.enable({
 
 -- gopls configuration with formatting and analyses
 vim.lsp.config("gopls", {
+    capabilities = capabilities,
     settings = {
         gopls = {
+            semanticTokens = true,
+            staticcheck = true,
+            gofumpt = true,
+            usePlaceholders = true,
             analyses = {
                 unusedparams = true,
                 shadow = true,
                 ST1000 = false,
                 ST1001 = false,
             },
-            staticcheck = true,
-            gofumpt = true,
-            -- hints = {
-            --     assignVariableTypes = true,
-            --     compositeLiteralFields = true,
-            --     compositeLiteralTypes = true,
-            --     constantValues = true,
-            --     functionTypeParameters = true,
-            --     parameterNames = true,
-            --     rangeVariableTypes = true,
-            -- },
+            hints = {
+                assignVariableTypes = true,
+                compositeLiteralFields = true,
+                compositeLiteralTypes = true,
+                constantValues = true,
+                functionTypeParameters = true,
+                parameterNames = true,
+                rangeVariableTypes = true,
+            },
         },
     },
 })
 
 -- Emmet language server configuration with templ support
 vim.lsp.config("emmet_language_server", {
+    capabilities = capabilities,
     filetypes = { "eruby", "html", "javascript", "javascriptreact", "less", "sass", "scss", "pug", "typescriptreact", "htmx", "templ", "go" },
     init_options = {},
 })
 
--- vim.lsp.config("tailwindcss", {
---     filetypes = { "eruby", "html", "javascript", "javascriptreact", "less", "sass", "scss", "pug", "typescriptreact", "htmx", "templ", "go" },
---     init_options = {},
--- })
 vim.lsp.config("tailwindcss", {
+    capabilities = capabilities,
     filetypes = {
         "eruby", "html", "javascript", "javascriptreact",
         "less", "sass", "scss", "pug", "typescriptreact",

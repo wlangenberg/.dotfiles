@@ -54,7 +54,6 @@ require("lazy").setup({
         'junegunn/fzf',
         run = function() vim.fn['fzf#install']() end
     },
-    "chomosuke/typst-preview.nvim",
     {
         "toppair/peek.nvim",
         event = { "VeryLazy" },
@@ -284,5 +283,5 @@ require("lazy").setup({
             },
         },
         cmd = { "CsvViewEnable", "CsvViewDisable", "CsvViewToggle" },
-    }
+    },
 })

@@ -38,6 +38,7 @@ map("n", "[d", "<cmd>lua vim.diagnostic.jump({count=-1})<CR>", { noremap = true,
 map("n", "]d", "<cmd>lua vim.diagnostic.jump({count=1})<CR>", { noremap = true, silent = true })
 map("n", "<leader>e", "<cmd>lua vim.diagnostic.open_float()<CR>", { noremap = true, silent = true })
 map("n", "<leader>vd", "<cmd>lua vim.diagnostic.enable(not vim.diagnostic.is_enabled())<CR>", { noremap = true, silent = true })
+map("n", "<leader>vh", "<cmd>lua vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())<CR>", { noremap = true, silent = true })
 map("n", "<leader>vf", "<cmd>lua vim.diagnostic.setloclist()<CR>", { noremap = true, silent = true })
 map("n", "<leader>vq", "<cmd>lua vim.diagnostic.setqflist()<CR>", { noremap = true, silent = true })
 map("n", "<leader>vl", "<cmd>Telescope diagnostics<CR>", { noremap = true, silent = true })
