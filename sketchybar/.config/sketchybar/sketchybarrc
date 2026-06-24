@@ -1,110 +1,140 @@
-BLACK=0xff24283b
+# Minimal dark color scheme
+BLACK=0xff1a1b26
+DARK_GRAY=0xff24283b
+MID_GRAY=0xff414868
+LIGHT_GRAY=0xff565f89
 WHITE=0xffa9b1d6
-MAGENTA=0xffbb9af7
-BLUE=0xff7aa2f7
-CYAN=0xff7dcfff
-GREEN=0xff9ece6a
-YELLOW=0xffe0af68
-ORANGE=0xffff9e64
-RED=0xfff7768e
-BAR_COLOR=0xff1a1b26
-COMMENT=0xff565f89
+
+# Neutral accent colors
+ACCENT=0xff7aa2f7
+ACTIVE_BG=0xff7aa2f7
+BAR_COLOR=0x00000000
 TRANSPARENT=0x00000000
-ICON_COLOR=$WHITE
-LABEL_COLOR=$WHITE
-
-ITEM_DIR="$HOME/.config/sketchybar/items"
-PLUGIN_DIR="$HOME/.config/sketchybar/plugins"
-
-PADDINGS=3
-POPUP_BORDER_WIDTH=2
-POPUP_CORNER_RADIUS=11
-POPUP_BACKGROUND_COLOR=$BLACK
-POPUP_BORDER_COLOR=$COMMENT
-CORNER_RADIUS=15
-BORDER_WIDTH=2
-SHADOW=on
 
 PLUGIN_DIR="$CONFIG_DIR/plugins"
 
+# Bar configuration - transparent to show islands only
 sketchybar --bar height=30        \
                  margin=12        \
                  y_offset=0       \
-                 padding_left=0   \
-                 padding_right=0  \
-                 color=0x00000000
+                 padding_left=10  \
+                 padding_right=10 \
+                 color=$BAR_COLOR
 
+# Default settings - minimal and dark
 default=(
-  background.color=0xEB1e1e2e
-  background.corner_radius=5
-  padding_left=0
-  padding_right=0
-  icon.font="Hack Nerd Font:Bold:17.0"
-  label.font="Hack Nerd Font:Bold:14.0"
-  icon.color=0xffffffff
-  label.color=0xffffffff
-  icon.padding_left=3
-  icon.padding_right=3
-  label.padding_left=3
-  label.padding_right=3
+  background.color=$DARK_GRAY
+  background.corner_radius=0
+  background.border_width=0
+  background.height=26
+  background.padding_left=0
+  background.padding_right=0
+  icon.font="Hack Nerd Font:Bold:14.0"
+  label.font="Hack Nerd Font:Bold:13.0"
+  icon.color=$WHITE
+  label.color=$WHITE
+  icon.padding_left=10
+  icon.padding_right=10
+  label.padding_left=0
+  label.padding_right=10
   y_offset=0
-  padding_left=0  
-  padding_right=0 
-  blur_radius=2
-  background.corner_radius=30
-  background.height=30
-  icon.padding_left=13
-  icon.padding_right=4
-  label.padding_left=4
-  label.padding_right=12
-  background.padding_left=5
-  background.border_width=2
-  background.border_color=0xff7aa2f3
 )
 
 sketchybar --default "${default[@]}"
 
 sketchybar --add event aerospace_workspace_change
 
+# Aerospace workspaces - connected without gaps
 order=(1 2 3 q w e)
 existing=($(aerospace list-workspaces --all))
+first=true
 for sid in "${order[@]}"; do
     if [[ " ${existing[*]} " == *" $sid "* ]]; then
+        # First item gets left corner radius, last gets right corner radius
+        if [ "$first" = true ]; then
+            corner_radius="background.corner_radius=0"
+            padding_left="background.padding_left=0"
+            first=false
+        else
+            corner_radius="background.corner_radius=0"
+            padding_left="background.padding_left=0"
+        fi
+        
         sketchybar --add item space.$sid left \
             --subscribe space.$sid aerospace_workspace_change \
             --set space.$sid \
                 icon="$sid" \
-                background.color=0xEB1e1e2e \
-                background.border_color=0xffff9e64 \
-                icon.padding_left=18 \
+                background.color=$DARK_GRAY \
+                $corner_radius \
+                $padding_left \
+                background.padding_right=0 \
+                icon.padding_left=10 \
+                icon.padding_right=0 \
                 click_script="aerospace workspace $sid" \
                 script="$CONFIG_DIR/plugins/aerospace.sh $sid"
     fi
 done
 
+# Apply right corner radius to the last workspace item
+for sid in "${order[@]}"; do
+    if [[ " ${existing[*]} " == *" $sid "* ]]; then
+        sketchybar --set space.$sid background.corner_radius=0
+        break
+    fi
+done
+
+# Front app - separate island with left margin
 sketchybar --add item front_app left \
            --set front_app \
+                background.color=$DARK_GRAY \
+                background.corner_radius=0 \
+                background.padding_left=0 \
                 icon.drawing=off \
-                label.padding_left=10 \
+                label.padding_left=12 \
+                label.padding_right=12 \
                 script="$PLUGIN_DIR/front_app.sh" \
            --subscribe front_app front_app_switched
 
-sketchybar --default background.border_color=0xff9ece6a
-
+# Right side items - connected together as one island
+# Start with date (leftmost of right group)
 sketchybar --add item date right \
-           --set date update_freq=20 icon=󰸗 script="$PLUGIN_DIR/date.sh" \
-           --add item volume right \
-           --set volume script="$PLUGIN_DIR/volume.sh" \
-           --subscribe volume volume_change \
-           --add item cpu right \
+           --set date \
+                update_freq=20 \
+                icon=󰸗 \
+                background.color=$DARK_GRAY \
+                background.corner_radius=0 \
+                icon.padding_left=12 \
+                icon.padding_right=8 \
+                label.padding_right=8 \
+                background.padding_right=0 \
+                script="$PLUGIN_DIR/date.sh"
+
+# Volume - middle item, no gaps
+sketchybar --add item volume right \
+           --set volume \
+                background.color=$DARK_GRAY \
+                background.corner_radius=0 \
+                icon.padding_left=8 \
+                icon.padding_right=8 \
+                label.padding_left=0 \
+                label.padding_right=8 \
+                background.padding_left=1 \
+                background.padding_right=1 \
+                script="$PLUGIN_DIR/volume.sh" \
+           --subscribe volume volume_change
+
+# CPU - rightmost item with right corner radius
+sketchybar --add item cpu right \
            --set cpu \
-           icon= \
-           update_freq=3 \
-           script="$PLUGIN_DIR/cpu.sh"
-           # --add item memory right \
-           # --set memory \
-           # icon= \
-           # update_freq=10 \
-           # script="$PLUGIN_DIR/memory.sh" \
+                icon= \
+                update_freq=3 \
+                background.color=$DARK_GRAY \
+                background.corner_radius=0 \
+                icon.padding_left=8 \
+                icon.padding_right=8 \
+                label.padding_left=0 \
+                label.padding_right=12 \
+                background.padding_left=0 \
+                script="$PLUGIN_DIR/cpu.sh"
 
 sketchybar --update

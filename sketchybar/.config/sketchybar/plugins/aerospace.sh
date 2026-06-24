@@ -1,21 +1,13 @@
 #!/usr/bin/env bash
 
-# make sure it's executable with:
-# chmod +x ~/.config/sketchybar/plugins/aerospace.sh
+# Minimal dark theme for aerospace workspace indicators
 
 if [ "$1" = "$FOCUSED_WORKSPACE" ]; then
-    # sketchybar --set $NAME background.drawing=on
-    # sketchybar --set $NAME background.drawing=on
-
-    # padding färg
-    sketchybar --set $NAME background.color=0xffff9e64
-
-    # siffrornas färg
-    sketchybar --set $NAME icon.color=0xEB1e1e2e
+    # Active workspace - subtle light gray background
+    sketchybar --set $NAME background.color=0xff565f89
+    sketchybar --set $NAME icon.color=0xff1a1b26
 else
-    # padding färg
-    sketchybar --set $NAME background.color=0xEB1e1e2e
-
-    # siffrornas färg
-    sketchybar --set $NAME icon.color=0xffffffff
+    # Inactive workspace - dark background
+    sketchybar --set $NAME background.color=0xff24283b
+    sketchybar --set $NAME icon.color=0xffa9b1d6
 fi
