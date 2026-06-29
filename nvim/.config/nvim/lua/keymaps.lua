@@ -16,6 +16,12 @@ map("n", "<leader>h", "gT", { noremap = true, silent = true })
 map("n", "H", "gT", { noremap = true, silent = true })
 map("n", "<leader>H", ':execute "tabmove" tabpagenr() - 2 <CR>', { noremap = true, silent = true })
 map({ "n", "v" }, "<leader>d", [["_d]])
+
+-- Toggle diff mode for all windows in the current tab
+map('n', '<leader>dtt', ':diffthis<CR>', { desc = 'Diff current windows' })
+map('n', '<leader>dta', ':windo diffthis<CR>', { desc = 'Diff all windows in tab' })
+map('n', '<leader>dto', ':windo diffoff<CR>', { desc = 'Clear diff in tab' })
+
 map("x", "<leader>p", [["_dP]])
 map("n", "<leader>j", "<cmd>cnext<CR>zz")
 map("n", "<leader>k", "<cmd>cprev<CR>zz")

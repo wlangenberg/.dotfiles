@@ -39,11 +39,15 @@ export PATH=/Users/willie/.opencode/bin:$PATH
 # aliases
 alias vim="nvim"
 alias vi="nvim"
+
 alias gs="git status"
 alias gb="git branch|grep '*'|tr -d '*'|tr -d '[:space:]'"
 alias gbl="git branch --sort=-committerdate"
 alias gd="git diff"
 alias gp="git pull"
+alias gl="git log"
+alias gc="git checkout"
+
 alias dc="docker compose"
 alias ta="tmux attach || tmux"
 alias ls="ls --color"
