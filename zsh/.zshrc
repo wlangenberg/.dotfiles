@@ -1,11 +1,3 @@
-# pnpm
-export PNPM_HOME="/Users/willie/Library/pnpm"
-case ":$PATH:" in
-  *":$PNPM_HOME:"*) ;;
-  *) export PATH="$PNPM_HOME:$PATH" ;;
-esac
-# pnpm end
-
 # Set up fzf key bindings and fuzzy completion
 source <(fzf --zsh)
 
@@ -24,19 +16,37 @@ set -o vi
 # bindkey
 bindkey -M viins '^E' _expand_alias
 
+## Exports ##
+
+# opencode
+export PATH=/Users/willie/.opencode/bin:$PATH
+
 # Go
 export GOPATH=$HOME/go
 export PATH="$PATH:$GOPATH/bin"
 export PATH="$HOME/.local/share/nvim/mason/bin:$PATH"
 export PATH="/opt/homebrew/opt/coreutils/libexec/gnubin:$PATH"
 
-# Custom exports
+
+# For alert scripts
 export REMINDER_SOUND=on
 
-# opencode
-export PATH=/Users/willie/.opencode/bin:$PATH
+# Remove docker ci hints
+export DOCKER_CLI_HINTS=false
 
-# aliases
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+# pnpm
+export PNPM_HOME="/Users/willie/Library/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+# pnpm end
+
+## Aliases ##
 alias vim="nvim"
 alias vi="nvim"
 
@@ -47,6 +57,8 @@ alias gd="git diff"
 alias gp="git pull"
 alias gl="git log"
 alias gc="git checkout"
+alias ga="git add"
+alias gr="git restore"
 
 alias dc="docker compose"
 alias ta="tmux attach || tmux"
@@ -56,7 +68,7 @@ alias fkill='ps -e -o pid,comm | fzf --preview "echo {}" | awk "{print \$1}" | x
 alias nuke_docker='docker stop $(docker ps -a -q);docker rm $(docker ps -a -q)'
 alias sourcevenv='source ./.venv/bin/activate'
 
-# python alias
+# Python func
 pc() {
   python3 -c "from math import *; print($*)"
 }
@@ -68,8 +80,7 @@ if [ -f "$HOME/.zsh_secrets" ]; then
   source "$HOME/.zsh_secrets"
 fi
 
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-
-# export DOCKER_DEFAULT_PLATFORM=linux/amd64
+# load .zsh_custom if exists
+if [ -f "$HOME/.zsh_custom" ]; then
+  source "$HOME/.zsh_custom"
+fi
