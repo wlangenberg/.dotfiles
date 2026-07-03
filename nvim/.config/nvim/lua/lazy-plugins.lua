@@ -126,7 +126,25 @@ require("lazy").setup({
             vim.cmd("colorscheme carbonfox")
         end
     },
-    'mfussenegger/nvim-lint',
+    {
+        'mfussenegger/nvim-lint',
+        keys = {
+            { "<leader>li", function() require("lint").try_lint() end, desc = "Trigger linting" }
+        },
+        config = function()
+            local lint = require("lint")
+
+            lint.linters_by_ft = {
+                go = { "golangcilint" },
+            }
+
+            vim.api.nvim_create_autocmd({ "BufWritePost", "BufReadPost", "InsertLeave" }, {
+                callback = function()
+                    lint.try_lint()
+                end,
+            })
+        end
+    },
     "sindrets/diffview.nvim",
     'tpope/vim-fugitive',
     'tpope/vim-commentary',
