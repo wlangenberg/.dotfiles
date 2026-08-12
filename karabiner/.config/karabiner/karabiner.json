@@ -6,7 +6,7 @@
                 "parameters": { "basic.to_if_held_down_threshold_milliseconds": 100 },
                 "rules": [
                     {
-                        "description": "Home row mods with double-tap key repeat - ctrl, opt, cmd, shift",
+                        "description": "Home row mods - ctrl, opt, cmd, shift (fixed double tap & rollover)",
                         "manipulators": [
                             {
                                 "from": {
@@ -338,9 +338,9 @@
                             },
                             {
                                 "from": { "key_code": "a" },
-                                "parameters": { "basic.to_delayed_action_delay_milliseconds": 250 },
                                 "to_delayed_action": {
                                     "to_if_canceled": [
+                                        { "key_code": "a" },
                                         {
                                             "set_variable": {
                                                 "name": "a_tap_repeat",
@@ -358,12 +358,15 @@
                                     ]
                                 },
                                 "to_if_alone": [
-                                    { "key_code": "a" },
                                     {
                                         "set_variable": {
                                             "name": "a_tap_repeat",
                                             "value": 1
                                         }
+                                    },
+                                    {
+                                        "halt": true,
+                                        "key_code": "a"
                                     }
                                 ],
                                 "to_if_held_down": [
@@ -399,9 +402,9 @@
                             },
                             {
                                 "from": { "key_code": "s" },
-                                "parameters": { "basic.to_delayed_action_delay_milliseconds": 250 },
                                 "to_delayed_action": {
                                     "to_if_canceled": [
+                                        { "key_code": "s" },
                                         {
                                             "set_variable": {
                                                 "name": "s_tap_repeat",
@@ -419,12 +422,15 @@
                                     ]
                                 },
                                 "to_if_alone": [
-                                    { "key_code": "s" },
                                     {
                                         "set_variable": {
                                             "name": "s_tap_repeat",
                                             "value": 1
                                         }
+                                    },
+                                    {
+                                        "halt": true,
+                                        "key_code": "s"
                                     }
                                 ],
                                 "to_if_held_down": [
@@ -460,9 +466,9 @@
                             },
                             {
                                 "from": { "key_code": "d" },
-                                "parameters": { "basic.to_delayed_action_delay_milliseconds": 250 },
                                 "to_delayed_action": {
                                     "to_if_canceled": [
+                                        { "key_code": "d" },
                                         {
                                             "set_variable": {
                                                 "name": "d_tap_repeat",
@@ -480,12 +486,15 @@
                                     ]
                                 },
                                 "to_if_alone": [
-                                    { "key_code": "d" },
                                     {
                                         "set_variable": {
                                             "name": "d_tap_repeat",
                                             "value": 1
                                         }
+                                    },
+                                    {
+                                        "halt": true,
+                                        "key_code": "d"
                                     }
                                 ],
                                 "to_if_held_down": [
@@ -521,9 +530,9 @@
                             },
                             {
                                 "from": { "key_code": "f" },
-                                "parameters": { "basic.to_delayed_action_delay_milliseconds": 250 },
                                 "to_delayed_action": {
                                     "to_if_canceled": [
+                                        { "key_code": "f" },
                                         {
                                             "set_variable": {
                                                 "name": "f_tap_repeat",
@@ -541,12 +550,15 @@
                                     ]
                                 },
                                 "to_if_alone": [
-                                    { "key_code": "f" },
                                     {
                                         "set_variable": {
                                             "name": "f_tap_repeat",
                                             "value": 1
                                         }
+                                    },
+                                    {
+                                        "halt": true,
+                                        "key_code": "f"
                                     }
                                 ],
                                 "to_if_held_down": [
@@ -887,9 +899,9 @@
                             },
                             {
                                 "from": { "key_code": "semicolon" },
-                                "parameters": { "basic.to_delayed_action_delay_milliseconds": 250 },
                                 "to_delayed_action": {
                                     "to_if_canceled": [
+                                        { "key_code": "semicolon" },
                                         {
                                             "set_variable": {
                                                 "name": "semicolon_tap_repeat",
@@ -907,12 +919,15 @@
                                     ]
                                 },
                                 "to_if_alone": [
-                                    { "key_code": "semicolon" },
                                     {
                                         "set_variable": {
                                             "name": "semicolon_tap_repeat",
                                             "value": 1
                                         }
+                                    },
+                                    {
+                                        "halt": true,
+                                        "key_code": "semicolon"
                                     }
                                 ],
                                 "to_if_held_down": [
@@ -948,9 +963,9 @@
                             },
                             {
                                 "from": { "key_code": "l" },
-                                "parameters": { "basic.to_delayed_action_delay_milliseconds": 250 },
                                 "to_delayed_action": {
                                     "to_if_canceled": [
+                                        { "key_code": "l" },
                                         {
                                             "set_variable": {
                                                 "name": "l_tap_repeat",
@@ -968,12 +983,15 @@
                                     ]
                                 },
                                 "to_if_alone": [
-                                    { "key_code": "l" },
                                     {
                                         "set_variable": {
                                             "name": "l_tap_repeat",
                                             "value": 1
                                         }
+                                    },
+                                    {
+                                        "halt": true,
+                                        "key_code": "l"
                                     }
                                 ],
                                 "to_if_held_down": [
@@ -1009,9 +1027,9 @@
                             },
                             {
                                 "from": { "key_code": "k" },
-                                "parameters": { "basic.to_delayed_action_delay_milliseconds": 250 },
                                 "to_delayed_action": {
                                     "to_if_canceled": [
+                                        { "key_code": "k" },
                                         {
                                             "set_variable": {
                                                 "name": "k_tap_repeat",
@@ -1029,12 +1047,15 @@
                                     ]
                                 },
                                 "to_if_alone": [
-                                    { "key_code": "k" },
                                     {
                                         "set_variable": {
                                             "name": "k_tap_repeat",
                                             "value": 1
                                         }
+                                    },
+                                    {
+                                        "halt": true,
+                                        "key_code": "k"
                                     }
                                 ],
                                 "to_if_held_down": [
@@ -1070,9 +1091,9 @@
                             },
                             {
                                 "from": { "key_code": "j" },
-                                "parameters": { "basic.to_delayed_action_delay_milliseconds": 250 },
                                 "to_delayed_action": {
                                     "to_if_canceled": [
+                                        { "key_code": "j" },
                                         {
                                             "set_variable": {
                                                 "name": "j_tap_repeat",
@@ -1090,12 +1111,15 @@
                                     ]
                                 },
                                 "to_if_alone": [
-                                    { "key_code": "j" },
                                     {
                                         "set_variable": {
                                             "name": "j_tap_repeat",
                                             "value": 1
                                         }
+                                    },
+                                    {
+                                        "halt": true,
+                                        "key_code": "j"
                                     }
                                 ],
                                 "to_if_held_down": [
