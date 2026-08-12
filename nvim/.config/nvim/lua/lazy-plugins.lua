@@ -146,6 +146,13 @@ require("lazy").setup({
         end
     },
     "sindrets/diffview.nvim",
+    {
+        "maxandron/goplements.nvim",
+        ft = "go",
+        opts = {
+            display_package = true,
+        },
+    },
     'tpope/vim-fugitive',
     'tpope/vim-commentary',
     'windwp/nvim-autopairs',
@@ -220,7 +227,6 @@ require("lazy").setup({
         event = { "BufReadPre", "BufNewFile" },
         config = function()
             require("conform").setup({
-                -- Map your filetypes to prettier
                 formatters_by_ft = {
                     javascript = { "prettier" },
                     go = { "gofumpt", "gofmt", "goimports" },
@@ -256,15 +262,15 @@ require("lazy").setup({
     },
     {
         'Wansmer/treesj',
-        -- keys = { '<space>m', '<space>j', '<space>s' },
         dependencies = { 'nvim-treesitter/nvim-treesitter' },
         config = function()
             require('treesj').setup({
                 use_default_keymaps = false,
                 max_join_length = 500,
             })
-            -- Example keymaps
-            vim.keymap.set('n', 'gS', require('treesj').toggle, { desc = "Toggle split/join" })
+            vim.keymap.set(
+                'n', 'gS', require('treesj').toggle, { desc = "Toggle split/join" }
+            )
         end,
     },
     {

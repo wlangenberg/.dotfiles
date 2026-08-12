@@ -34,7 +34,7 @@ vim.o.undofile = true
 vim.o.fileformat = "unix"
 vim.o.splitright = true
 vim.o.colorcolumn = "90"
-vim.o.cmdheight = 0
+vim.o.cmdheight = 1
 vim.opt.diffopt:append("algorithm:histogram")
 
 
@@ -45,3 +45,9 @@ vim.filetype.add({
   },
 })
 
+-- interpret txt files as markdown
+vim.filetype.add({
+  extension = {
+    txt = "markdown",
+  },
+})
