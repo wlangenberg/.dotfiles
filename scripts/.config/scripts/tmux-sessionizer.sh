@@ -5,6 +5,7 @@ DIRS=(
     "$HOME/Projects"
     "$HOME/git"
     "$HOME/tmp"
+    "$HOME/Documents"
 )
 
 if [[ $# -eq 1 ]]; then

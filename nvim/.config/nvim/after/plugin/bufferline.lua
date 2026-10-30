@@ -16,5 +16,6 @@ bufferline.setup {
         max_prefix_length = 25,
         truncate_names = true,
         tab_size = 28,
+        auto_toggle_bufferline = false,
     }
 }

@@ -36,6 +36,8 @@ zstyle :zle:edit-command-line editor nvim -c 'set ft=zsh'
 bindkey -M viins '^x' edit-command-line
 bindkey -M vicmd '^x' edit-command-line
 
+export OPENCODE_EXPERIMENTAL_WATCHER=true
+
 # For alert scripts
 export REMINDER_SOUND=on
 
