@@ -37,6 +37,7 @@ vim.o.colorcolumn = "90"
 vim.o.cmdheight = 1
 vim.opt.diffopt:append("algorithm:histogram")
 vim.o.exrc = true
+vim.o.showtabline = 1
 
 
 -- add bash as sketchybarrc filetype
