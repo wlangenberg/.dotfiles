@@ -27,6 +27,14 @@ export PATH="$PATH:$GOPATH/bin"
 export PATH="$HOME/.local/share/nvim/mason/bin:$PATH"
 export PATH="/opt/homebrew/opt/coreutils/libexec/gnubin:$PATH"
 
+# zsh
+export VISUAL=vim
+export EDITOR=vim
+autoload -Uz edit-command-line
+zle -N edit-command-line
+zstyle :zle:edit-command-line editor nvim -c 'set ft=zsh'
+bindkey -M viins '^x' edit-command-line
+bindkey -M vicmd '^x' edit-command-line
 
 # For alert scripts
 export REMINDER_SOUND=on
@@ -71,6 +79,12 @@ alias sourcevenv='source ./.venv/bin/activate'
 # Python func
 pc() {
   python3 -c "from math import *; print($*)"
+}
+
+send_alert() {
+    local message="${1:-Alert from terminal}"
+    local title="Script done"
+    osascript -e 'display notification "'"$message"'" with title "'"$title"'" sound name "Hero"'
 }
 
 . "$HOME/.local/bin/env"

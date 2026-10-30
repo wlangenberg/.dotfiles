@@ -18,7 +18,7 @@ vim.api.nvim_create_autocmd("FileType", {
     local pattern = "([A-Za-z]+%-%d+)"
     local prefix = branch:match(pattern)
     if prefix and prefix ~= "HEAD" then
-      local new_line = prefix .. ": "
+      local new_line = prefix .. " "
       vim.api.nvim_buf_set_lines(0, 0, 0, false, {new_line})
       vim.api.nvim_win_set_cursor(0, {1, #new_line + 1})
     end

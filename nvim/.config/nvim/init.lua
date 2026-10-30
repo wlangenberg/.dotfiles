@@ -1,5 +1,6 @@
 require('options')
 require('lazy-plugins')
 require('lsp-config')
+require('functions')
 require('keymaps')
 require('autocmds')

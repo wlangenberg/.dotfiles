@@ -11,6 +11,19 @@ vim.lsp.enable({
     "emmet_language_server", "tailwindcss"
 })
 
+-- openapi-language-server setup
+vim.api.nvim_create_autocmd('FileType', {
+    pattern = { 'yaml', 'json' },
+    callback = function()
+        vim.lsp.start({
+            name = 'openapi-ls',
+            cmd = { 'openapi-language-server' },
+            root_dir = vim.fn.getcwd(),
+            capabilities = capabilities,
+        })
+    end,
+})
+
 -- gopls configuration with formatting and analyses
 vim.lsp.config("gopls", {
     capabilities = capabilities,

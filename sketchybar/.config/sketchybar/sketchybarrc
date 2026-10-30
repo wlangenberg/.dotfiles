@@ -15,7 +15,7 @@ PLUGIN_DIR="$CONFIG_DIR/plugins"
 
 # Bar configuration - transparent to show islands only
 sketchybar --bar height=30        \
-                 margin=12        \
+                 margin=6         \
                  y_offset=0       \
                  padding_left=10  \
                  padding_right=10 \

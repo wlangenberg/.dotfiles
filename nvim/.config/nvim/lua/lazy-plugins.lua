@@ -124,6 +124,7 @@ require("lazy").setup({
         priority = 1000,
         config = function()
             vim.cmd("colorscheme carbonfox")
+            vim.api.nvim_set_hl(0, 'Visual', { bg = '#ad6f37' })
         end
     },
     {
@@ -307,5 +308,20 @@ require("lazy").setup({
             },
         },
         cmd = { "CsvViewEnable", "CsvViewDisable", "CsvViewToggle" },
+    },
+    {
+        "osttra-w-langenberg/nvim-html-css",
+        dependencies = {
+            "nvim-treesitter/nvim-treesitter",
+            "nvim-lua/plenary.nvim",
+        },
+        config = function()
+            require("html-css"):setup({
+                handlers = {
+                    definition = { bind = "gd" },
+                    hover = { bind = "K" },
+                },
+            })
+        end,
     },
 })

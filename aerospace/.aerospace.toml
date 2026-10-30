@@ -59,7 +59,8 @@ automatically-unhide-macos-hidden-apps = false
     alt-shift-s= 'mode service'
     alt-shift-ctrl-c = 'reload-config'
     alt-enter = '''exec-and-forget open -na Ghostty'''
-    alt-b = '''exec-and-forget open -na /Applications/Firefox.app'''
+    # alt-b = '''exec-and-forget open -na /Applications/Firefox.app'''
+    alt-b = '''exec-and-forget zsh -lc 'open -na "${BROWSER:-Firefox}"''''
 
     cmd-h = []
     cmd-m = []
@@ -103,10 +104,10 @@ automatically-unhide-macos-hidden-apps = false
 
 
 [mode.resize.binding]
-    h = 'resize width +50'
+    h = 'resize width -50'
     j = 'resize height -50'
     k = 'resize height +50'
-    l = 'resize width -50'
+    l = 'resize width +50'
     enter = 'mode main'
     esc = 'mode main'
 

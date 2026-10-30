@@ -3,6 +3,11 @@ if not ok then
     return
 end
 
+ok, _ = pcall(require, "plenary")
+if not ok then
+    return
+end
+
 telescope.setup {
     defaults = {
         file_ignore_patterns = { "undodir/*", ".git/", "%.min%.js$", "vendor" },
@@ -94,9 +99,7 @@ map("n", "gi", telescope_builtin.lsp_implementations)
 map("n", "gr", telescope_builtin.lsp_references)
 map("n", "<leader>K", telescope_builtin.lsp_type_definitions)
 
-vim.keymap.del('n', 'grx')
-vim.keymap.del('n', 'grr')
-vim.keymap.del('n', 'grn')
-vim.keymap.del('n', 'grt')
-vim.keymap.del('n', 'gri')
-vim.keymap.del('n', 'gra')
+local default_lsp_keys = { 'grx', 'grr', 'grn', 'grt', 'gri', 'gra' }
+for _, key in ipairs(default_lsp_keys) do
+  pcall(vim.keymap.del, 'n', key)
+end
